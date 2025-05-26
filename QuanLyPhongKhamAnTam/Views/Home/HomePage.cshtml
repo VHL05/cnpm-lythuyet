@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HomePage</title>
+    <meta charset="utf-8" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+<style>
+    .sidebar {
+        min-height: 100vh;
+        background-color: #f8f9fa;
+    }
+
+    .sidebar .nav-link {
+        color: #000;
+    }
+
+    .sidebar .nav-link:hover {
+        background-color: #e2e6ea;
+        border-radius: 5px;
+    }
+
+    .stat-box {
+        border-radius: 10px;
+        padding: 20px;
+        color: #fff;
+    }
+
+    .stat-box h4 {
+        margin: 0;
+    }
+</style>
+</head>
+<body>
+    <!-- Navbar-->
+    <nav class="navbar navbar-expand-sm navbar-dark px-3" style="background-color: #1E90FF">
+        <a class="navbar-brand fw-bold" href="/home/HomePage">🩺 Phòng khám đa khoa An Tâm</a>
+        <div class="ms-auto">
+            <span class="text-white">Xin chào, Admin | <a href="/account/login" class="text-white text-decoration-underline">Đăng nhập</a></span>
+        </div>
+    </nav>
+
+    <!-- Layout chia 2 cột -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar bên trái -->
+            <div class="col-md-2 sidebar p-3">
+                <h5>Chức năng</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link" href="/home/HomePage">🏠 Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/doctor/index">👨‍⚕️ Bác sĩ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/patient/index">🧍 Bệnh nhân</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/appointment/index">📅 Lịch hẹn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/prescription/index">💊 Đơn thuốc</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/report/index">📈 Thống kê</a></li>
+                </ul>
+            </div>
+
+            <!-- Nội dung chính -->
+            <div class="col-md-10 p-4">
+                <h2 class="mb-4">Trang chủ</h2>
+                <div class="bg-light p-4 rounded">
+                    <h4>Chào mừng bạn đến với hệ thống quản lý phòng khám An Tâm!</h4>
+                    <p>Vui lòng chọn chức năng từ menu bên trái để bắt đầu ngày làm việc hiệu quả hôm nay nha cả nhà.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

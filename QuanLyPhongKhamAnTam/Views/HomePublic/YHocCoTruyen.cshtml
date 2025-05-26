@@ -1,0 +1,386 @@
+﻿@{
+    ViewBag.Title = "Yhoccotruyen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Custom Banner Style - Y học cổ truyền */
+    .tcm-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('/Content/Images/yhoccotruyen.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 150px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    .tcm-hero h1 {
+        font-size: 2.8rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+    }
+
+    .tcm-hero p {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Service Card Styles */
+    .tcm-service-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        height: 100%;
+        border-left: 4px solid #0d6efd;
+        padding: 25px 20px;
+        margin-bottom: 20px;
+        background-color: #fff;
+    }
+
+    .tcm-service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
+    }
+
+    .tcm-service-icon {
+        font-size: 40px;
+        color: #0d6efd;
+        margin-bottom: 15px;
+    }
+
+    /* Feature Box Styles */
+    .feature-box {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 30px;
+        border-top: 3px solid #0d6efd;
+    }
+
+    /* Doctor Card Styles */
+        .doctor-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+}
+
+    .doctor-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+        border: 3px solid #0d6efd;
+    }
+
+    /* Testimonial Styles */
+    .testimonial-card {
+        border-left: 4px solid #0d6efd;
+        background-color: #ffffff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 0 8px 8px 0;
+    }
+    .testimonial-card .blockquote-footer {
+        color: #ffffff;
+        font-size: 0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+        .tcm-hero {
+            padding: 100px 0;
+        }
+        
+        .tcm-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .tcm-hero p {
+            font-size: 1.1rem;
+        }
+        
+        .doctor-info {
+            margin-top: 15px;
+        }
+    }
+        .sidebar {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.sidebar .nav-link {
+    color: #495057;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #f0f7ff;
+    color: #0d6efd;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link:hover::before {
+    background-color: #0d6efd;
+}
+
+.sidebar .nav-link.active {
+    background-color: #e9f7fe;
+    color: #0d6efd;
+    font-weight: 500;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link.active::before {
+    background-color: #0d6efd;
+}
+
+.sidebar .nav-link i {
+    width: 20px;
+    text-align: center;
+    margin-right: 10px;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.sidebar h5 {
+    color: #212529;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="sidebar p-3 rounded shadow-sm">
+                <h5 class="border-bottom pb-2 mb-3">Chức năng</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/TrangchuPK"><i class="fas fa-home me-2"></i>Trang chủ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/DichvuPK"><i class="fas fa-procedures me-2"></i>Dịch vụ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link active" href="#"><i class="fas fa-spa me-2"></i>Chuyên khoa</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/GioithieuPK"><i class="fas fa-info-circle me-2"></i>Giới thiệu</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#lienhe"><i class="fas fa-phone-alt me-2"></i>Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content Column -->
+        <div class="col-md-9">
+            <!-- Hero Section -->
+            <section class="tcm-hero">
+                <div class="container">
+                    <h1 class="display-4 fw-bold mb-4">CHUYÊN KHOA Y HỌC CỔ TRUYỀN</h1>
+                    <p class="lead">Kết hợp tinh hoa y học cổ truyền với phương pháp hiện đại để chăm sóc sức khỏe toàn diện</p>
+                </div>
+            </section>
+
+            <!-- Main Content -->
+            <div class="container my-5">
+                <!-- Introduction -->
+                <section class="mb-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="text-primary mb-4">
+                                <i class="fa-solid fa-spa me-2"></i>
+                                Giới thiệu chuyên khoa Y học cổ truyền
+                            </h2>
+                            <p class="lead mb-3 fw-bold">
+                                Chuyên khoa Y học cổ truyền tại phòng khám của chúng tôi kết hợp hài hòa giữa phương pháp điều trị cổ truyền và hiện đại. Với đội ngũ bác sĩ có chuyên môn cao và kinh nghiệm dày dặn, chúng tôi mang đến các liệu pháp điều trị hiệu quả, an toàn, giúp người bệnh phục hồi sức khỏe toàn diện.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Services -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">DỊCH VỤ CHÍNH</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="tcm-service-card">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-leaf tcm-service-icon"></i>
+                                    <h4>Điều trị bằng Y học cổ truyền</h4>
+                                    <ul class="text-start ps-4">
+                                        <li>Bấm huyệt - xoa bóp trị liệu</li>
+                                        <li>Châm cứu, cứu ngải</li>
+                                        <li>Điện châm - thủy châm</li>
+                                        <li>Kê toa thuốc Đông y</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="tcm-service-card">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-person-walking-with-cane tcm-service-icon"></i>
+                                    <h4>Phục hồi chức năng</h4>
+                                    <ul class="text-start ps-4">
+                                        <li>Phục hồi sau tai biến</li>
+                                        <li>Điều trị đau lưng, thoái hóa</li>
+                                        <li>Tập vận động khớp, cơ</li>
+                                        <li>Hướng dẫn tự phục hồi tại nhà</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="tcm-service-card">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-heart-pulse tcm-service-icon"></i>
+                                    <h4>Chăm sóc sức khỏe</h4>
+                                    <ul class="text-start ps-4">
+                                        <li>Tăng cường miễn dịch</li>
+                                        <li>Giảm stress, cải thiện giấc ngủ</li>
+                                        <li>Hỗ trợ bệnh mãn tính</li>
+                                        <li>Tư vấn lối sống theo Đông y</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Special Features -->
+                <section class="py-5 bg-light">
+                    <div class="container">
+                        <h2 class="text-center text-primary mb-5">ĐIỂM NỔI BẬT</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <h4><i class="fas fa-leaf me-2 text-primary"></i> Phương pháp tự nhiên</h4>
+                                    <p>Áp dụng các liệu pháp điều trị từ thiên nhiên, ít tác dụng phụ, an toàn cho sức khỏe.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <h4><i class="fas fa-user-md me-2 text-primary"></i> Bác sĩ chuyên môn cao</h4>
+                                    <p>Đội ngũ bác sĩ được đào tạo bài bản, có nhiều năm kinh nghiệm trong lĩnh vực Y học cổ truyền.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <h4><i class="fas fa-clock me-2 text-primary"></i> Điều trị lâu dài</h4>
+                                    <p>Phương pháp điều trị tập trung vào căn nguyên bệnh, mang lại hiệu quả bền vững.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-box">
+                                    <h4><i class="fas fa-heart me-2 text-primary"></i> Chăm sóc toàn diện</h4>
+                                    <p>Kết hợp điều trị với tư vấn dinh dưỡng, lối sống để nâng cao sức khỏe tổng thể.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Doctors Team -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">ĐỘI NGŨ BÁC SĨ</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="doctor-card d-flex">
+                                <img src="/Content/Images/doctor-tcm1.jpg" alt="" class="doctor-img">
+                                <div class="doctor-info">
+                                    <h5>BS</h5>
+                                    <p class="text-muted">Chuyên khoa Y học cổ truyền</p>
+                                    <p class="small">25 năm kinh nghiệm, nguyên Trưởng khoa Y học cổ truyền Bệnh viện Bạch Mai</p>
+                                    <p class="small"><i class="fas fa-graduation-cap me-2"></i>Tiến sĩ Y học cổ truyền</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="doctor-card d-flex">
+                                <img src="/Content/Images/doctor-tcm2.jpg" alt="" class="doctor-img">
+                                <div class="doctor-info">
+                                    <h5>BS</h5>
+                                    <p class="text-muted">Chuyên gia Châm cứu</p>
+                                    <p class="small">18 năm kinh nghiệm, tốt nghiệp chuyên sâu về Châm cứu tại Trung Quốc</p>
+                                    <p class="small"><i class="fas fa-graduation-cap me-2"></i>Thạc sĩ Y học cổ truyền</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testimonials -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">BỆNH NHÂN NÓI GÌ VỀ CHÚNG TÔI</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <blockquote class="blockquote mb-0">
+                                    <p>"Điều trị đau lưng mãn tính bằng Đông y tại đây sau 3 tháng đã cải thiện rõ rệt. Tôi có thể ngủ ngon hơn."</p>
+                                    <footer class="blockquote-footer mt-2 fw-bold">Anh Lê Văn Tâm, 45 tuổi</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <blockquote class="blockquote mb-0">
+                                    <p>"Bác sĩ rất tận tâm, châm cứu không đau như tôi tưởng. Điều trị 2 tháng đã giảm hẳn đau vai gáy."</p>
+                                    <footer class="blockquote-footer mt-2 fw-bold">Chị Phạm Thị Hồng, 38 tuổi</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <blockquote class="blockquote mb-0">
+                                    <p>"Thuốc Đông y kê đơn tại đây giúp tôi ngủ ngon, ăn uống tốt hơn hẳn. Cảm ơn bác sĩ rất nhiều!"</p>
+                                    <footer class="blockquote-footer mt-2 fw-bold">Bà Nguyễn Thị Mai, 62 tuổi</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="text-center mt-5">
+                    <h3 class="mb-4">ĐẶT LỊCH KHÁM VỚI BÁC SĨ Y HỌC CỔ TRUYỀN</h3>
+                    <a href="tel:0933706188" class="btn btn-primary btn-lg px-5 me-3"><i class="fa-solid fa-phone me-2"></i> Gọi ngay 0933 706 188</a>
+                    <a href="/dat-lich" class="btn btn-outline-primary btn-lg px-5"><i class="fa-solid fa-calendar-days me-2"></i> Đặt lịch trực tuyến</a>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

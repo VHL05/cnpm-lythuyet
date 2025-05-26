@@ -1,0 +1,327 @@
+﻿@{
+    ViewBag.Title = "Giới thiệu phòng khám";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .about-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/Content/Images/about-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 205px 0;
+        text-align: center;
+        background-image: url('/Content/Images/doingubacsi.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: rgba(0, 0, 0, 0.5); /* Màu overlay */
+        background-blend-mode: overlay; /* Trộn màu overlay với ảnh nền */
+    }
+    
+    .about-section {
+        padding: 60px 0;
+    }
+    
+    .about-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+        margin-bottom: 30px;
+        height: 100%;
+    }
+    
+    .about-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+    }
+    
+    .about-icon {
+        font-size: 50px;
+        color: #1E90FF;
+        margin-bottom: 20px;
+    }
+
+    .core-value {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+    }
+    .core-values-section {
+        position: relative;
+        padding: 60px 0;
+    }
+    .core-values-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/Content/Images/background_gioithieu.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Hiệu ứng parallax */
+        opacity: 1 ; /* Độ trong suốt của ảnh nền */
+        z-index: -1;
+    }
+    .core-value:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .doctor-card {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .doctor-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 20px;
+        border: 3px solid #1E90FF;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        padding: 20px;
+    }
+
+    .sidebar .nav-link {
+        color: #495057;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sidebar .nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background-color: transparent;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar .nav-link:hover {
+        background-color: #f0f7ff;
+        color: #0d6efd;
+        transform: translateX(5px);
+        box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+    }
+
+    .sidebar .nav-link:hover::before {
+        background-color: #0d6efd;
+    }
+
+    .sidebar .nav-link.active {
+        background-color: #e9f7fe;
+        color: #0d6efd;
+        font-weight: 500;
+        transform: translateX(5px);
+        box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+    }
+
+    .sidebar .nav-link.active::before {
+        background-color: #0d6efd;
+    }
+
+    .sidebar .nav-link i {
+        width: 20px;
+        text-align: center;
+        margin-right: 10px;
+        color: inherit;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar h5 {
+        color: #212529;
+        font-weight: 600;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #e9ecef;
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="about-hero">
+    <div class="container position-relative">
+        <h1 class="display-4 fw-bold mb-4">Về Phòng Khám Đa Khoa An Tâm</h1>
+        <p class="lead">Hơn 12 năm đồng hành chăm sóc sức khỏe cộng đồng</p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="sidebar p-3 rounded shadow-sm">
+                <h5 class="border-bottom pb-2 mb-3">Chức năng</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/TrangchuPK"><i class="fas fa-home me-2"></i>Trang chủ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/DichvuPK"><i class="fas fa-procedures me-2"></i>Dịch vụ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#chuyenkhoa"><i class="fas fa-stethoscope me-2"></i>Chuyên khoa</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link active" href="/homepublic/GioithieuPK"><i class="fas fa-info-circle me-2"></i>Giới thiệu</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#lienhe"><i class="fas fa-phone-alt me-2"></i>Liên hệ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#"><i class="fas fa-newspaper me-2"></i>Tin tức</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Main Content Column -->
+        <div class="col-md-9">
+            <div class="container about-section">
+                <div class="row mb-5">
+                    <div class="col-lg-6">
+                        <h2 class="text-primary mb-4">Giới thiệu chung</h2>
+                        <p class="lead">Được thành lập từ năm 2010 với chi nhánh đầu tiên tại Đồng Khởi, phòng khám đa khoa của chúng tôi đã không ngừng phát triển để trở thành một trong những hệ thống y khoa uy tín tại khu vực Đồng Nai.</p>
+                        <p>Trải qua hơn 12 năm hoạt động, chúng tôi hiện có nhiều cơ sở khang trang, cùng đội ngũ hơn 500 nhân sự và gần 150 bác sĩ phục vụ mỗi ngày từ 3000 đến 3500 lượt bệnh nhân.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="~/Content/Images/anhnen.jpg" alt="Phòng khám" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+
+                <!-- Mission Vision -->
+                <div class="row mb-5">
+                    <div class="col-md-6 mb-4">
+                        <div class="about-card p-4 h-100">
+                            <div class="text-center">
+                                <i class="fas fa-eye about-icon"></i>
+                                <h3 class="text-primary">Tầm nhìn</h3>
+                                <p>Trở thành hệ thống y khoa hàng đầu tại Đông Nam Bộ, luôn được khách hàng lựa chọn và tin tưởng.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="about-card p-4 h-100">
+                            <div class="text-center">
+                                <i class="fas fa-bullseye about-icon"></i>
+                                <h3 class="text-primary">Sứ mệnh</h3>
+                                <p>Cung cấp dịch vụ chăm sóc sức khỏe chất lượng cao, an toàn và tận tâm đến với cộng đồng.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Values -->
+                <section class="core-values-section mb-5">
+                    <div class="container">
+                        <h2 class="text-center text-white fw-bold mb-5">GIÁ TRỊ CỐT LÕI</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="core-value">
+                                    <h4><i class="fas fa-heart text-danger me-2"></i> Tận tâm</h4>
+                                    <p>Luôn đặt bệnh nhân làm trung tâm, phục vụ với lòng nhiệt huyết.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="core-value">
+                                    <h4><i class="fas fa-hand-holding-heart text-success me-2"></i> Trung thực</h4>
+                                    <p>Minh bạch trong mọi hoạt động, tư vấn đúng và đủ cho khách hàng.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="core-value">
+                                    <h4><i class="fas fa-hands-helping text-info me-2"></i> Tôn trọng</h4>
+                                    <p>Đối xử với mọi người bằng sự tử tế và tôn trọng sự khác biệt.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="core-value">
+                                    <h4><i class="fas fa-lightbulb text-warning me-2"></i> Tiên phong</h4>
+                                    <p>Ứng dụng công nghệ mới, cập nhật kiến thức y khoa hiện đại.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Philosophy -->
+                <section class="mb-5 text-center p-5 rounded" style="background-color: #ECD8DA; ">
+                    <h2 class="text-black fw-bold mb-4">TRIẾT LÝ HOẠT ĐỘNG</h2>
+                    <p class="display-6 fw-bold text-primary">"Nhân ái - Nghĩa tình - Tâm đức - Chất lượng"</p>
+                    <p class="lead">Là kim chỉ nam trong mọi hoạt động của phòng khám. Đây là cam kết phục vụ bệnh nhân bằng cả trái tim và trách nhiệm.</p>
+                </section>
+
+                <!-- Doctors -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">ĐỘI NGŨ Y BÁC SỸ</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="doctor-card">
+                                <img src="~/Content/Images/bacsi1_phanvantri.jpg" alt="Bác sĩ" class="doctor-img">
+                                <h4>BS CKII. Phan Văn Chí</h4>
+                                <p class="text-muted">Chuyên khoa Nội tổng hợp</p>
+                                <p>Hơn 20 năm kinh nghiệm trong lĩnh vực nội khoa</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="doctor-card">
+                                <img src="~/Content/Images/bacsi2_dangthihoangtuyen.jpg" alt="Bác sĩ" class="doctor-img">
+                                <h4>BS CKII. Đặng Thị Hoàng Tuyên</h4>
+                                <p class="text-muted">Chuyên khoa Nhi</p>
+                                <p>Nguyên trưởng khoa Nhi tại Bệnh viện Đa khoa tỉnh</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="doctor-card">
+                                <img src="~/Content/Images/bacsi3_phamminhtuan.jpg" alt="Bác sĩ" class="doctor-img">
+                                <h4>TS. Phạm Minh Tuấn</h4>
+                                <p class="text-muted">Chuyên khoa Nội tổng hợp</p>
+                                <p>Hơn 20 năm kinh nghiệm trong công tác chữa trị tại nhiều bệnh viện lớn</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-4">Liên hệ với chúng tôi</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center p-3">
+                                <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
+                                <h4>Địa chỉ</h4>
+                                <p>194-196 Đồng Khởi, P.Tân Hiệp, TP. Biên Hòa, Đồng Nai</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center p-3">
+                                <i class="fas fa-phone-alt fa-3x text-primary mb-3"></i>
+                                <h4>Điện thoại</h4>
+                                <p>0933.706.188</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="text-center p-3">
+                                <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
+                                <h4>Email</h4>
+                                <p>info@phongkhamcuatoi.vn</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

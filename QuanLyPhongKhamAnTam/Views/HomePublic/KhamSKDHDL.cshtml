@@ -1,0 +1,235 @@
+﻿@{
+    ViewBag.Title = "KhamSKDHDL";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Custom Banner Style */
+    .service-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/Content/Images/khamsuckhoe_anh3.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 150px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    .service-hero h1 {
+        font-size: 2.8rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+    }
+
+    .service-hero p {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        padding: 20px;
+    }
+
+    .sidebar .nav-link {
+        color: #495057;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sidebar .nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background-color: transparent;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar .nav-link:hover {
+        background-color: #f0f7ff;
+        color: #0d6efd;
+        transform: translateX(5px);
+        box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+    }
+
+    .sidebar .nav-link:hover::before {
+        background-color: #0d6efd;
+    }
+
+    .sidebar .nav-link.active {
+        background-color: #e9f7fe;
+        color: #0d6efd;
+        font-weight: 500;
+        transform: translateX(5px);
+        box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+    }
+
+    .sidebar .nav-link.active::before {
+        background-color: #0d6efd;
+    }
+
+    .sidebar .nav-link i {
+        width: 20px;
+        text-align: center;
+        margin-right: 10px;
+        color: inherit;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar h5 {
+        color: #212529;
+        font-weight: 600;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    /* Content styles */
+    .service-detail {
+        padding: 40px 0;
+    }
+
+    .service-detail h1 {
+        color: #0d6efd;
+        margin-bottom: 20px;
+    }
+
+    .service-detail h2 {
+        color: #0d6efd;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .service-detail ul, .service-detail ol {
+        padding-left: 20px;
+    }
+
+    .service-detail ul.list-unstyled {
+        padding-left: 0;
+    }
+
+    .service-detail ul.list-unstyled li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .service-detail ul.list-unstyled li i {
+        position: absolute;
+        left: 0;
+        top: 5px;
+    }
+
+    .service-detail ol li {
+        margin-bottom: 15px;
+    }
+
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+        .service-hero {
+            padding: 100px 0;
+        }
+        
+        .service-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .service-hero p {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="sidebar p-3 rounded shadow-sm">
+                <h5 class="border-bottom pb-2 mb-3">Chức năng</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/TrangchuPK"><i class="fas fa-home me-2"></i>Trang chủ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link active" href="/homepublic/DichvuPK"><i class="fas fa-procedures me-2"></i>Dịch vụ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#chuyenkhoa"><i class="fas fa-stethoscope me-2"></i>Chuyên khoa</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/GioithieuPK"><i class="fas fa-info-circle me-2"></i>Giới thiệu</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#lienhe"><i class="fas fa-phone-alt me-2"></i>Liên hệ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#"><i class="fas fa-newspaper me-2"></i>Tin tức</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content Column -->
+        <div class="col-md-9">
+            <!-- Hero Banner -->
+            <section class="service-hero">
+                <div class="container">
+                    <h1 class="display-4 fw-bold mb-4">KHÁM SỨC KHỎE ĐI HỌC, ĐI LÀM, LÁI XE</h1>
+                    <p class="lead">Thủ tục nhanh chóng - Chi phí hợp lý - Kết quả chính xác</p>
+                </div>
+            </section>
+
+            <!-- Main Content -->
+            <section class="service-detail py-5">
+                <div class="container">
+                    <h1 class="text-primary fw-bold mb-4">Khám sức khỏe đi học, đi làm, lái xe</h1>
+                    <p class="mb-4">
+                        Dịch vụ khám sức khỏe tại hệ thống Y khoa Ái Nghĩa dành cho các nhu cầu như:
+                        <strong>Đi học, đi làm, thi tuyển, xin việc, và thi/bổ sung hồ sơ lái xe</strong>.
+                        Quý khách sẽ được:
+                    </p>
+
+                    <ul class="list-unstyled mb-4">
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Thực hiện khám đầy đủ theo thông tư quy định của Bộ Y tế.</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Khám nhanh, không phải chờ đợi lâu.</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Chi phí hợp lý, hỗ trợ in ấn hồ sơ nhanh chóng.</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Bác sĩ tận tình, tư vấn chi tiết, chuyên nghiệp.</li>
+                    </ul>
+
+                    <h2 class="h4 fw-bold mb-3">Các loại khám được hỗ trợ</h2>
+                    <ul class="list-unstyled mb-4">
+                        <li><i class="fas fa-user-graduate text-primary me-2"></i>Khám sức khỏe nhập học cho học sinh, sinh viên.</li>
+                        <li><i class="fas fa-briefcase text-primary me-2"></i>Khám sức khỏe xin việc, thi tuyển, bổ sung hồ sơ.</li>
+                        <li><i class="fas fa-car text-primary me-2"></i>Khám sức khỏe lái xe các hạng A1, A2, B1, B2, C, D...</li>
+                    </ul>
+
+                    <h2 class="h4 fw-bold mb-3">Hồ sơ cần mang theo</h2>
+                    <ul class="list-unstyled mb-4">
+                        <li><i class="fas fa-id-card text-warning me-2"></i>Chứng minh nhân dân/Căn cước công dân bản gốc.</li>
+                        <li><i class="fas fa-file-alt text-warning me-2"></i>2 ảnh 4x6 (trên nền trắng, áo có cổ, chụp trong vòng 6 tháng).</li>
+                    </ul>
+
+                    <h2 class="h4 fw-bold mb-3">Thời gian và địa điểm khám</h2>
+                    <ul class="list-unstyled mb-4">
+                        <li><i class="fas fa-clock text-info me-2"></i>Thời gian: Sáng từ 7h00 - 11h00, Chiều từ 13h00 - 16h30 (Tất cả các ngày trong tuần).</li>
+                        <li><i class="fas fa-map-marker-alt text-info me-2"></i>Hệ thống phòng khám Ái Nghĩa tại Đồng Nai, Long Khánh, Nhơn Trạch, Long Thành, Thạnh Phú...</li>
+                    </ul>
+
+                    <div class="alert alert-info">
+                        <strong>Lưu ý:</strong> Quý khách nên đến trước 30 phút để được hướng dẫn làm thủ tục và khám nhanh chóng.
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="/dat-lich-kham" class="btn btn-primary btn-lg">Đặt lịch khám ngay</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

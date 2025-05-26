@@ -1,0 +1,224 @@
+﻿@{
+    ViewBag.Title = "Noisoi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Custom Banner Style */
+    .service-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/Content/Images/noisoi_anh4.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 150px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    .service-hero h1 {
+        font-size: 2.8rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+    }
+
+    .service-hero p {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        padding: 20px;
+    }
+
+    .sidebar .nav-link {
+        color: #495057;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sidebar .nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background-color: transparent;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar .nav-link:hover {
+        background-color: #f0f7ff;
+        color: #0d6efd;
+        transform: translateX(5px);
+        box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+    }
+
+    .sidebar .nav-link:hover::before {
+        background-color: #0d6efd;
+    }
+
+    .sidebar .nav-link.active {
+        background-color: #e9f7fe;
+        color: #0d6efd;
+        font-weight: 500;
+        transform: translateX(5px);
+        box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+    }
+
+    .sidebar .nav-link.active::before {
+        background-color: #0d6efd;
+    }
+
+    .sidebar .nav-link i {
+        width: 20px;
+        text-align: center;
+        margin-right: 10px;
+        color: inherit;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar h5 {
+        color: #212529;
+        font-weight: 600;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    /* Content styles */
+    .service-detail {
+        padding: 40px 0;
+    }
+
+    .service-detail h1 {
+        color: #0d6efd;
+        margin-bottom: 20px;
+    }
+
+    .service-detail h2 {
+        color: #0d6efd;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .service-detail ul, .service-detail ol {
+        padding-left: 20px;
+    }
+
+    .service-detail ul.list-unstyled {
+        padding-left: 0;
+    }
+
+    .service-detail ul.list-unstyled li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .service-detail ul.list-unstyled li i {
+        position: absolute;
+        left: 0;
+        top: 5px;
+    }
+
+    .service-detail ol li {
+        margin-bottom: 15px;
+    }
+
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+        .service-hero {
+            padding: 100px 0;
+        }
+        
+        .service-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .service-hero p {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="sidebar p-3 rounded shadow-sm">
+                <h5 class="border-bottom pb-2 mb-3">Chức năng</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/TrangchuPK"><i class="fas fa-home me-2"></i>Trang chủ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link active" href="/homepublic/DichvuPK"><i class="fas fa-procedures me-2"></i>Dịch vụ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#chuyenkhoa"><i class="fas fa-stethoscope me-2"></i>Chuyên khoa</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/GioithieuPK"><i class="fas fa-info-circle me-2"></i>Giới thiệu</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#lienhe"><i class="fas fa-phone-alt me-2"></i>Liên hệ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#"><i class="fas fa-newspaper me-2"></i>Tin tức</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content Column -->
+        <div class="col-md-9">
+            <!-- Hero Banner -->
+            <section class="service-hero">
+                <div class="container">
+                    <h1 class="display-4 fw-bold mb-4">NỘI SOI TIÊU HÓA</h1>
+                    <p class="lead">Chẩn đoán chính xác - Điều trị hiệu quả - An toàn tuyệt đối</p>
+                </div>
+            </section>
+
+            <!-- Main Content -->
+            <section class="service-detail py-5">
+                <div class="container">
+                    <h1 class="text-primary fw-bold mb-4">Nội soi tiêu hóa</h1>
+                    <p class="mb-4">
+                        Quý khách hàng trải nghiệm Dịch vụ Nội soi tiêu hóa tại các Phòng khám đa khoa trực thuộc hệ thống Y khoa An Tâm cùng với:
+                    </p>
+                    <ul class="list-unstyled mb-4">
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Đội ngũ Bác sĩ nhiều năm kinh nghiệm, công tác tại chuyên khoa Tiêu hóa, Nội soi tiêu hóa tại các bệnh viện lớn trên địa bàn tỉnh Đồng Nai, TP. Hồ Chí Minh.</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Áp dụng nội soi hiện đại, giúp chẩn đoán chính xác bệnh lý thực quản-dạ dày-tá tràng, tìm HP (clotest hoặc test hơi thở), loét dạ dày tá tràng, viêm teo niêm mạc dạ dày, polyp... Đặc biệt tầm soát Ung thư sớm dạ dày để điều trị kịp thời.</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Chi phí hợp lý, tiết kiệm, phù hợp với mọi người dân. Áp dụng thanh toán BHYT trong thăm khám và điều trị.</li>
+                    </ul>
+
+                    <h2 class="h4 fw-bold mb-3">Lưu ý trước khi nội soi</h2>
+                    <ul class="list-unstyled mb-4">
+                        <li><i class="fas fa-exclamation-circle text-warning me-2"></i>Nhịn ăn và uống nước trước khi nội soi từ 4 - 8 tiếng đồng hồ.</li>
+                        <li><i class="fas fa-exclamation-circle text-warning me-2"></i>Cần trao đổi rõ với bác sĩ nếu có tiền sử bệnh tim mạch, hen suyễn, bệnh thận hoặc dị ứng...</li>
+                        <li><i class="fas fa-exclamation-circle text-warning me-2"></i>Trước ngày nội soi, bạn nên tránh dùng các món ăn nhiều chất xơ, khó tiêu hóa như: các loại ngũ cốc (bột yến mạch, bánh mì hoặc vừng, súp lơ xanh, đậu Hà Lan…).</li>
+                        <li><i class="fas fa-exclamation-circle text-warning me-2"></i>Đặc biệt thăm khám, tư vấn và nêu rõ triệu chứng khó chịu với các Bác sĩ chuyên khoa trước khi thực hiện dịch vụ nội soi.</li>
+                    </ul>
+
+                    <h2 class="h4 fw-bold mb-3">Quy trình thực hiện</h2>
+                    <ol class="mb-4">
+                        <li><strong>Chuẩn bị:</strong> Người bệnh có nhu cầu thăm khám hoặc thực hiện dịch vụ nên chuẩn bị nhịn ăn sáng trước khi thực hiện dịch vụ.</li>
+                        <li><strong>Thăm khám lâm sàng:</strong> Đăng ký khám chuyên khoa Nội tiêu hóa để được tư vấn và thực hiện dịch vụ phù hợp.</li>
+                        <li><strong>Thực hiện nội soi:</strong> Thực hiện nội soi cùng đội ngũ Bác sĩ chuyên khoa Thăm dò chức năng nhiều năm kinh nghiệm của chúng tôi.</li>
+                        <li><strong>Đợi kết quả:</strong> Vui lòng đợi kết quả được trả sau giây lát.</li>
+                    </ol>
+
+                    <div class="text-center">
+                        <a href="/dat-lich-kham" class="btn btn-primary btn-lg">Đặt lịch khám ngay</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,400 @@
+﻿
+@{
+    ViewBag.Title = "Noitongquat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <style>
+        .service-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/Content/Images/noitonghop.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .service-hero h1 {
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .service-detail h2 {
+            color: #0d6efd;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .sidebar {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.sidebar .nav-link {
+    color: #495057;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #f0f7ff;
+    color: #0d6efd;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link:hover::before {
+    background-color: #0d6efd;
+}
+
+.sidebar .nav-link.active {
+    background-color: #e9f7fe;
+    color: #0d6efd;
+    font-weight: 500;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link.active::before {
+    background-color: #0d6efd;
+}
+
+.sidebar .nav-link i {
+    width: 20px;
+    text-align: center;
+    margin-right: 10px;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.sidebar h5 {
+    color: #212529;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+        .service-content {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.intro-section {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.card {
+    transition: transform 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.process-steps .step {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.process-steps .step-number {
+    background-color: #0d6efd;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+.benefit-item {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.benefit-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.icon-box {
+    transition: all 0.3s ease;
+}
+
+.service-item:hover .icon-box {
+    background-color: #0d6efd !important;
+}
+
+.service-item:hover .icon-box i {
+    color: white !important;
+}
+
+.disease-category {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    height: 100%;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+}
+    </style>
+
+    <div class="service-hero">
+        <div class="container">
+            <h1>Chuyên khoa Nội tổng quát</h1>
+        </div>
+    </div>
+    <section class="service-detail py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-md-3 mb-4">
+                    <div class="sidebar">
+                        <h5 class="border-bottom pb-2 mb-3">Chức năng</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link" href="/homepublic/TrangchuPK"><i class="fas fa-home"></i>Trang chủ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/homepublic/DichvuPK"><i class="fas fa-procedures"></i>Dịch vụ</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-stethoscope"></i>Nội tổng quát</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/homepublic/GioithieuPK"><i class="fas fa-info-circle"></i>Giới thiệu</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#lienhe"><i class="fas fa-phone-alt"></i>Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Nội dung chính -->
+                <div class="col-md-9">
+                    <div class="service-content">
+                        <div class="intro-section mb-5">
+                            <p class="lead text-muted fw-bold">
+                                Khoa Nội tổng quát tại phòng khám chúng tôi là địa chỉ tin cậy trong việc chẩn đoán, điều trị và quản lý các bệnh lý nội khoa thường gặp. Với đội ngũ bác sĩ giàu kinh nghiệm cùng hệ thống trang thiết bị hiện đại, chúng tôi cam kết mang đến dịch vụ y tế chất lượng cao.
+                            </p>
+                        </div>
+
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title h4 text-primary mb-4"><i class="fas fa-disease me-2"></i>Các bệnh lý thường gặp</h2>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="disease-category mb-3">
+                                            <h3 class="h5 text-success"><i class="fas fa-lungs me-2"></i>Hô hấp</h3>
+                                            <ul class="list-unstyled ps-4">
+                                                <li class="mb-2">Viêm phế quản cấp/mạn</li>
+                                                <li class="mb-2">Hen phế quản</li>
+                                                <li class="mb-2">Viêm phổi</li>
+                                                <li class="mb-2">Bệnh phổi tắc nghẽn</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="disease-category mb-3">
+                                            <h3 class="h5 text-success"><i class="fas fa-heartbeat me-2"></i>Tim mạch</h3>
+                                            <ul class="list-unstyled ps-4">
+                                                <li class="mb-2">Tăng huyết áp</li>
+                                                <li class="mb-2">Bệnh mạch vành</li>
+                                                <li class="mb-2">Rối loạn nhịp tim</li>
+                                                <li class="mb-2">Suy tim</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="disease-category mb-3">
+                                            <h3 class="h5 text-success"><i class="fas fa-bowl-food me-2"></i>Tiêu hóa</h3>
+                                            <ul class="list-unstyled ps-4">
+                                                <li class="mb-2">Viêm dạ dày</li>
+                                                <li class="mb-2">Trào ngược dạ dày-thực quản</li>
+                                                <li class="mb-2">Hội chứng ruột kích thích</li>
+                                                <li class="mb-2">Viêm đại tràng</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title h4 text-primary mb-4"><i class="fas fa-procedures me-2"></i>Dịch vụ chuyên khoa</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="service-item d-flex mb-3">
+                                            <div class="icon-box bg-light-primary rounded-circle p-3 me-3">
+                                                <i class="fas fa-user-md text-primary fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="h5">Khám và chẩn đoán</h3>
+                                                <p class="text-muted mb-0">Thăm khám tổng quát, chẩn đoán bệnh lý nội khoa</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="service-item d-flex mb-3">
+                                            <div class="icon-box bg-light-primary rounded-circle p-3 me-3">
+                                                <i class="fas fa-pills text-primary fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="h5">Điều trị nội khoa</h3>
+                                                <p class="text-muted mb-0">Điều trị các bệnh lý cấp và mạn tính</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="service-item d-flex mb-3">
+                                            <div class="icon-box bg-light-primary rounded-circle p-3 me-3">
+                                                <i class="fas fa-calendar-check text-primary fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="h5">Quản lý bệnh mạn tính</h3>
+                                                <p class="text-muted mb-0">Theo dõi và quản lý các bệnh lý dài hạn</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="service-item d-flex mb-3">
+                                            <div class="icon-box bg-light-primary rounded-circle p-3 me-3">
+                                                <i class="fas fa-vials text-primary fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="h5">Tầm soát sức khỏe</h3>
+                                                <p class="text-muted mb-0">Các gói khám sức khỏe tổng quát định kỳ</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title h4 text-primary mb-4"><i class="fas fa-cogs me-2"></i>Quy trình khám chữa bệnh</h2>
+                                <div class="process-steps">
+                                    <div class="step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <h3 class="h5">Đăng ký khám</h3>
+                                            <p>Đặt lịch hẹn qua website, điện thoại hoặc đăng ký trực tiếp tại quầy lễ tân</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <h3 class="h5">Khám lâm sàng</h3>
+                                            <p>Bác sĩ chuyên khoa thăm khám, khai thác tiền sử bệnh và triệu chứng</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <h3 class="h5">Cận lâm sàng</h3>
+                                            <p>Thực hiện các xét nghiệm, chẩn đoán hình ảnh khi cần thiết</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-content">
+                                            <h3 class="h5">Chẩn đoán & điều trị</h3>
+                                            <p>Bác sĩ đưa ra chẩn đoán chính xác và phác đồ điều trị phù hợp</p>
+                                        </div>
+                                    </div>
+                                    <div class="step">
+                                        <div class="step-number">5</div>
+                                        <div class="step-content">
+                                            <h3 class="h5">Tái khám & theo dõi</h3>
+                                            <p>Hẹn lịch tái khám và hướng dẫn chăm sóc tại nhà</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h2 class="card-title h4 text-primary mb-4"><i class="fas fa-award me-2"></i>Lợi ích khi khám tại phòng khám</h2>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="benefit-item p-3 h-100 rounded bg-light">
+                                            <h3 class="h5 text-success"><i class="fas fa-user-md me-2"></i>Đội ngũ chuyên gia</h3>
+                                            <p class="mb-0">Bác sĩ chuyên khoa nội với hơn 15 năm kinh nghiệm, từng công tác tại các bệnh viện lớn</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="benefit-item p-3 h-100 rounded bg-light">
+                                            <h3 class="h5 text-success"><i class="fas fa-microscope me-2"></i>Trang thiết bị hiện đại</h3>
+                                            <p class="mb-0">Hệ thống máy siêu âm, xét nghiệm, nội soi thế hệ mới nhất đảm bảo chẩn đoán chính xác</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="benefit-item p-3 h-100 rounded bg-light">
+                                            <h3 class="h5 text-success"><i class="fas fa-clock me-2"></i>Tiết kiệm thời gian</h3>
+                                            <p class="mb-0">Quy trình khám khoa học, thủ tục đơn giản, không phải chờ đợi lâu</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="benefit-item p-3 h-100 rounded bg-light">
+                                            <h3 class="h5 text-success"><i class="fas fa-hand-holding-heart me-2"></i>Chăm sóc tận tâm</h3>
+                                            <p class="mb-0">Đội ngũ điều dưỡng chu đáo, tư vấn chế độ dinh dưỡng và sinh hoạt phù hợp</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info bg-light-info border-info">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-info-circle fs-3 me-3 text-info"></i>
+                                <div>
+                                    <h3 class="h5 mb-2">Thông tin cần biết</h3>
+                                    <p class="mb-1">- Nên nhịn ăn 4-6 tiếng trước khi khám nếu có chỉ định xét nghiệm máu</p>
+                                    <p class="mb-1">- Mang theo kết quả khám bệnh cũ, đơn thuốc đang sử dụng (nếu có)</p>
+                                    <p class="mb-0">- Đặt lịch hẹn trước để được phục vụ tốt nhất và không phải chờ đợi</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-5">
+                            <a href="/dat-lich-kham" class="btn btn-primary btn-lg px-4 py-2">
+                                <i class="fas fa-calendar-check me-2"></i>Đặt lịch khám ngay
+                            </a>
+                            <a href="tel:0123456789" class="btn btn-outline-primary btn-lg px-4 py-2 ms-3">
+                                <i class="fas fa-phone-alt me-2"></i>Gọi tư vấn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+

@@ -1,0 +1,467 @@
+﻿@{
+    ViewBag.Title = "Răng Hàm Mặt";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Custom Banner Style */
+    .dental-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('/Content/images/Ranghammat.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 150px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    .dental-hero h1 {
+        font-size: 2.8rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+    }
+
+    .dental-hero p {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Service Card Styles */
+    .service-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        height: 100%;
+        border-left: 4px solid #0d6efd;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+    }
+
+    .service-icon {
+        font-size: 40px;
+        color: #0d6efd;
+        margin-bottom: 15px;
+    }
+
+    /* Benefit Card Styles */
+    .benefit-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #f8f9fa;
+        text-align: center;
+        height: 100%;
+    }
+
+    .benefit-card:hover {
+        box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+        transform: translateY(-5px);
+    }
+
+    .benefit-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 15px;
+    }
+
+    /* Doctor Card Styles */
+        .doctor-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+}
+
+    .doctor-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+        border: 3px solid #0d6efd;
+    }
+
+    /* Testimonial Styles */
+    .testimonial-card {
+        border-left: 4px solid #0d6efd;
+        background-color: #f8f9fa;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .testimonial-card .blockquote-footer {
+        color: #ffffff
+;
+        font-size: 0.9rem;
+    }
+
+    /* Process Styles */
+    .process-step {
+        position: relative;
+        padding-left: 80px;
+        margin-bottom: 30px;
+    }
+
+    .process-number {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 60px;
+        height: 60px;
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+        .dental-hero {
+            padding: 100px 0;
+        }
+        
+        .dental-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .dental-hero p {
+            font-size: 1.1rem;
+        }
+        
+        .doctor-info {
+            margin-top: 15px;
+        }
+        
+        .process-step {
+            padding-left: 60px;
+        }
+        
+        .process-number {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+    }
+    .sidebar {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.sidebar .nav-link {
+    color: #495057;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #f0f7ff;
+    color: #0d6efd;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link:hover::before {
+    background-color: #0d6efd;
+}
+
+.sidebar .nav-link.active {
+    background-color: #e9f7fe;
+    color: #0d6efd;
+    font-weight: 500;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link.active::before {
+    background-color: #0d6efd;
+}
+
+.sidebar .nav-link i {
+    width: 20px;
+    text-align: center;
+    margin-right: 10px;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.sidebar h5 {
+    color: #212529;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+}
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="sidebar p-3 rounded shadow-sm">
+                <h5 class="border-bottom pb-2 mb-3">Chức năng</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/TrangchuPK"><i class="fas fa-home me-2"></i>Trang chủ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/DichvuPK"><i class="fas fa-procedures me-2"></i>Dịch vụ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link active" href="#"><i class="fas fa-stethoscope me-2"></i>Chuyên khoa</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/GioithieuPK"><i class="fas fa-info-circle me-2"></i>Giới thiệu</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#lienhe"><i class="fas fa-phone-alt me-2"></i>Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content Column -->
+        <div class="col-md-9">
+            <!-- Hero Section -->
+            <section class="dental-hero">
+                <div class="container">
+                    <h1 class="display-4 fw-bold mb-4">CHUYÊN KHOA RĂNG HÀM MẶT</h1>
+                    <p class="lead">Chăm sóc nụ cười khỏe đẹp với công nghệ hiện đại và đội ngũ bác sĩ chuyên môn cao</p>
+                </div>
+            </section>
+
+            <!-- Main Content -->
+            <div class="container my-5">
+                <!-- Introduction -->
+                <section class="mb-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="text-primary mb-4">
+                                <i class="fa-solid fa-tooth me-2"></i>
+                                Giới thiệu chuyên khoa Răng Hàm Mặt
+                            </h2>
+                            <p class="lead mb-3 fw-bold">
+                                Chuyên khoa Răng Hàm Mặt tại phòng khám của chúng tôi mang đến các dịch vụ chăm sóc răng miệng toàn diện, từ thăm khám định kỳ đến điều trị chuyên sâu. Với phương châm "Mỗi nụ cười là một tác phẩm nghệ thuật", chúng tôi cam kết mang lại cho khách hàng trải nghiệm dịch vụ tốt nhất.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Services -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">DỊCH VỤ NỔI BẬT</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="service-card">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-teeth-open service-icon"></i>
+                                    <h4>Khám tổng quát</h4>
+                                    <ul class="text-start ps-4">
+                                        <li>Khám và tư vấn răng miệng</li>
+                                        <li>Lấy cao răng - Đánh bóng</li>
+                                        <li>Chụp X-quang răng</li>
+                                        <li>Tầm soát ung thư khoang miệng</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="service-card">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-teeth service-icon"></i>
+                                    <h4>Điều trị nha khoa</h4>
+                                    <ul class="text-start ps-4">
+                                        <li>Trám răng thẩm mỹ</li>
+                                        <li>Nhổ răng khôn không đau</li>
+                                        <li>Điều trị tủy răng</li>
+                                        <li>Cấy ghép Implant</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="service-card">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-face-smile service-icon"></i>
+                                    <h4>Nha khoa thẩm mỹ</h4>
+                                    <ul class="text-start ps-4">
+                                        <li>Niềng răng - Chỉnh nha</li>
+                                        <li>Bọc răng sứ thẩm mỹ</li>
+                                        <li>Tẩy trắng răng</li>
+                                        <li>Dán sứ Veneer</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Benefits -->
+                <section class="py-5 bg-light">
+                    <div class="container">
+                        <h2 class="text-center text-primary mb-5">TẠI SAO NÊN CHỌN CHÚNG TÔI?</h2>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="benefit-card">
+                                    <h4>Bác sĩ giỏi</h4>
+                                    <p>Đội ngũ bác sĩ chuyên khoa Răng Hàm Mặt giàu kinh nghiệm, tốt nghiệp từ các trường đại học y danh tiếng trong và ngoài nước.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="benefit-card">
+                                    <h4>Thiết bị hiện đại</h4>
+                                    <p>Hệ thống máy móc nhập khẩu từ châu Âu, phòng vô trùng đạt chuẩn, ứng dụng công nghệ số trong chẩn đoán và điều trị.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="benefit-card">
+                                    <h4>Dịch vụ tận tâm</h4>
+                                    <p>Quy trình khép kín, chăm sóc khách hàng 24/7, bảo hành dài hạn cho các dịch vụ, hỗ trợ thanh toán bảo hiểm y tế.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Treatment Process -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">QUY TRÌNH KHÁM VÀ ĐIỀU TRỊ</h2>
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto"> 
+                            <div class="process-step">
+                                <div class="process-number">1</div>
+                                <h4>Đăng ký khám</h4>
+                                <p>Khách hàng đăng ký thông tin và được hướng dẫn làm thủ tục tại quầy lễ tân hoặc đặt lịch trực tuyến.</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-number">2</div>
+                                <h4>Khám tổng quát</h4>
+                                <p>Bác sĩ thăm khám tổng thể, chụp X-quang (nếu cần) và đưa ra chẩn đoán ban đầu.</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-number">3</div>
+                                <h4>Tư vấn điều trị</h4>
+                                <p>Bác sĩ giải thích tình trạng răng miệng và đề xuất phương án điều trị phù hợp cùng chi phí dự kiến.</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-number">4</div>
+                                <h4>Thực hiện điều trị</h4>
+                                <p>Tiến hành các thủ thuật, điều trị theo phác đồ đã thống nhất với khách hàng.</p>
+                            </div>
+                            <div class="process-step">
+                                <div class="process-number">5</div>
+                                <h4>Hẹn tái khám</h4>
+                                <p>Hướng dẫn chăm sóc sau điều trị và hẹn lịch tái khám (nếu cần).</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Doctors Team -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">ĐỘI NGŨ BÁC SĨ CHUYÊN KHOA</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="doctor-card d-flex">
+                                <img src="/Content/Images/doctor-female-dental.jpg" alt="" class="doctor-img">
+                                <div class="doctor-info">
+                                    <h5>BS Nguyễn Thị Minh Anh</h5>
+                                    <p class="text-muted">Chuyên khoa Răng Hàm Mặt</p>
+                                    <p class="small">15 năm kinh nghiệm, chuyên sâu về chỉnh nha và implant</p>
+                                    <p class="small"><i class="fas fa-graduation-cap me-2"></i>Tốt nghiệp Đại học Y Hà Nội</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="doctor-card d-flex">
+                                <img src="/Content/Images/doctor-male-dental.jpg" alt="" class="doctor-img">
+                                <div class="doctor-info">
+                                    <h5>BS Trần Văn Bình</h5>
+                                    <p class="text-muted">Chuyên khoa Răng Hàm Mặt</p>
+                                    <p class="small">12 năm kinh nghiệm, chuyên về phục hình răng thẩm mỹ</p>
+                                    <p class="small"><i class="fas fa-graduation-cap me-2"></i>Thạc sĩ Nha khoa tại Pháp</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testimonials -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">CẢM NHẬN CỦA KHÁCH HÀNG</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <blockquote class="blockquote mb-0">
+                                    <p>"Tôi rất hài lòng với dịch vụ niềng răng tại đây. Bác sĩ tận tâm, quy trình chuyên nghiệp và kết quả vượt ngoài mong đợi."</p>
+                                    <footer class="blockquote-footer mt-2 fw-bold">Chị Nguyễn Thị Hồng, 28 tuổi</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <blockquote class="blockquote mb-0">
+                                    <p>"Nhổ răng khôn không đau như tôi tưởng. Cảm ơn bác sĩ và đội ngũ nhân viên đã chăm sóc tôi chu đáo."</p>
+                                    <footer class="blockquote-footer mt-2 fw-bold">Anh Lê Văn Tú, 35 tuổi</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <blockquote class="blockquote mb-0">
+                                    <p>"Con tôi đã chỉnh nha tại đây và rất hợp tác với bác sĩ. Kết quả sau 2 năm thật tuyệt vời."</p>
+                                    <footer class="blockquote-footer mt-2 fw-bold">Chị Phạm Thị Lan, phụ huynh</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="text-center mt-5">
+                    <h3 class="mb-4">ĐẶT LỊCH KHÁM RĂNG MIỆNG NGAY HÔM NAY</h3>
+                    <a href="tel:0933706188" class="btn btn-primary btn-lg px-5 me-3"><i class="fa-solid fa-phone me-2"></i> Gọi ngay 0933 706 188</a>
+                    <a href="/dat-lich" class="btn btn-outline-primary btn-lg px-5"><i class="fa-solid fa-calendar-days me-2"></i> Đặt lịch trực tuyến</a>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

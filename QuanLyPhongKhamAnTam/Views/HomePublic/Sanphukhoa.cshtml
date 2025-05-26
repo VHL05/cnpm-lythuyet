@@ -1,0 +1,397 @@
+﻿@{
+    ViewBag.Title = "Sanphukhoa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Custom Banner Style - Sản Phụ Khoa */
+    .obgyn-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('/Content/Images/sanphukhoa.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 150px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    .obgyn-hero h1 {
+        font-size: 2.8rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+    }
+
+    .obgyn-hero p {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Service Card Styles - Custom for OBGYN */
+    .obgyn-service-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        height: 100%;
+        border-left: 4px solid #0d6efd;
+        padding: 25px 20px;
+        margin-bottom: 20px;
+        background-color: #fff;
+    }
+
+    .obgyn-service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(13, 110, 253, 0.15);
+    }
+
+    .obgyn-service-icon {
+        font-size: 40px;
+        color: #0d6efd;
+        margin-bottom: 15px;
+    }
+
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+        .obgyn-hero {
+            padding: 100px 0;
+        }
+        
+        .obgyn-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .obgyn-hero p {
+            font-size: 1.1rem;
+        }
+    }
+.sidebar {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    padding: 20px;
+}
+
+.sidebar .nav-link {
+    color: #495057;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #f0f7ff;
+    color: #0d6efd;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link:hover::before {
+    background-color: #0d6efd;
+}
+
+.sidebar .nav-link.active {
+    background-color: #e9f7fe;
+    color: #0d6efd;
+    font-weight: 500;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link.active::before {
+    background-color: #0d6efd;
+}
+
+.sidebar .nav-link i {
+    width: 20px;
+    text-align: center;
+    margin-right: 10px;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.sidebar h5 {
+    color: #212529;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+.testimonial-card .blockquote-footer {
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+.doctor-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+}
+
+.doctor-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.doctor-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 3px solid #0d6efd;
+}
+.feature-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        height: 100%;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+    }
+
+    .feature-icon {
+        font-size: 1.5rem;
+        margin-right: 10px;
+    }
+
+    .feature-title {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="sidebar p-3 rounded shadow-sm">
+                <h5 class="border-bottom pb-2 mb-3">Chức năng</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/TrangchuPK"><i class="fas fa-home me-2"></i>Trang chủ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/DichvuPK"><i class="fas fa-procedures me-2"></i>Dịch vụ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link active" href="#"><i class="fas fa-venus me-2"></i>Chuyên khoa</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/GioithieuPK"><i class="fas fa-info-circle me-2"></i>Giới thiệu</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#lienhe"><i class="fas fa-phone-alt me-2"></i>Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content Column -->
+        <div class="col-md-9">
+            <!-- Hero Section -->
+            <section class="obgyn-hero">
+                <div class="container">
+                    <h1 class="display-4 fw-bold mb-4">CHUYÊN KHOA SẢN PHỤ KHOA</h1>
+                    <p class="lead">Chăm sóc sức khỏe sinh sản toàn diện cho phụ nữ ở mọi lứa tuổi</p>
+                </div>
+            </section>
+
+            <!-- Main Content -->
+            <div class="container my-5">
+                <!-- Introduction -->
+                <section class="mb-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="text-primary mb-4">
+                                <i class="fa-solid fa-venus me-2"></i>
+                                Giới thiệu chuyên khoa Sản Phụ Khoa
+                            </h2>
+                            <p class="lead mb-3 fw-bold">
+                                Chuyên khoa Sản Phụ Khoa tại phòng khám của chúng tôi cung cấp các dịch vụ chăm sóc sức khỏe sinh sản toàn diện dành cho phụ nữ ở mọi độ tuổi. Đội ngũ bác sĩ tận tâm, giàu kinh nghiệm và hệ thống trang thiết bị hiện đại giúp chẩn đoán và điều trị hiệu quả các bệnh lý phụ khoa, đồng thời hỗ trợ thai sản an toàn và khoa học.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Services -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">DỊCH VỤ CHÍNH</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="obgyn-service-card">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-user-doctor obgyn-service-icon"></i>
+                                    <h4>Khám phụ khoa</h4>
+                                    <ul class="text-start ps-4">
+                                        <li>Khám và tư vấn sức khỏe sinh sản</li>
+                                        <li>Phát hiện sớm các bệnh phụ khoa</li>
+                                        <li>Soi cổ tử cung, siêu âm phụ khoa</li>
+                                        <li>Tầm soát ung thư cổ tử cung</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="obgyn-service-card">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-baby obgyn-service-icon"></i>
+                                    <h4>Khám thai – theo dõi thai kỳ</h4>
+                                    <ul class="text-start ps-4">
+                                        <li>Khám và theo dõi định kỳ trong thai kỳ</li>
+                                        <li>Siêu âm thai 2D, 3D, 4D</li>
+                                        <li>Tư vấn dinh dưỡng và chăm sóc thai</li>
+                                        <li>Phát hiện sớm các dấu hiệu bất thường</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="obgyn-service-card">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-notes-medical obgyn-service-icon"></i>
+                                    <h4>Điều trị bệnh lý</h4>
+                                    <ul class="text-start ps-4">
+                                        <li>Viêm nhiễm âm đạo, cổ tử cung</li>
+                                        <li>Rối loạn kinh nguyệt</li>
+                                        <li>U xơ tử cung, u nang buồng trứng</li>
+                                        <li>Hiếm muộn – vô sinh</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Special Features -->
+                <section class="py-5 bg-light">
+                    <div class="container">
+                        <h2 class="text-center text-primary mb-5">ĐIỂM NỔI BẬT</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-6">
+                                <div class="feature-card h-100">
+                                    <h4 class="feature-title text-primary">
+                                        <i class="fas fa-female feature-icon"></i> Không gian riêng tư
+                                    </h4>
+                                    <p>Phòng khám thiết kế không gian kín đáo, tôn trọng sự riêng tư của phụ nữ.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="feature-card h-100">
+                                    <h4 class="feature-title text-primary">
+                                        <i class="fas fa-user-md feature-icon"></i> Bác sĩ nữ giàu kinh nghiệm
+                                    </h4>
+                                    <p>Đội ngũ bác sĩ chuyên khoa sản phụ khoa với hơn 15 năm kinh nghiệm.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="feature-card h-100">
+                                    <h4 class="feature-title text-primary">
+                                        <i class="fas fa-baby-carriage feature-icon"></i> Thai sản trọn gói
+                                    </h4>
+                                    <p>Các gói chăm sóc thai sản toàn diện từ khi mang thai đến sau sinh.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="feature-card h-100">
+                                    <h4 class="feature-title text-primary">
+                                        <i class="fas fa-microscope feature-icon"></i> Trang thiết bị hiện đại
+                                    </h4>
+                                    <p>Hệ thống máy siêu âm 4D, xét nghiệm hiện đại, phòng tiểu phẫu đạt chuẩn.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Doctors Team -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">ĐỘI NGŨ BÁC SĨ</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="doctor-card d-flex">
+                                <img src="/Content/Images/doctor-female-obgyn.jpg" alt="" class="doctor-img">
+                                <div class="doctor-info">
+                                    <h5>BS</h5>
+                                    <p class="text-muted">Chuyên khoa Phụ Sản</p>
+                                    <p class="small">25 năm kinh nghiệm, nguyên Phó khoa Sản Bệnh viện Phụ sản Trung ương</p>
+                                    <p class="small"><i class="fas fa-graduation-cap me-2"></i>Tiến sĩ Sản Phụ khoa</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="doctor-card d-flex">
+                                <img src="/Content/Images/doctor-female-obgyn2.jpg" alt="" class="doctor-img">
+                                <div class="doctor-info">
+                                    <h5>BS</h5>
+                                    <p class="text-muted">Chuyên khoa Hiếm muộn</p>
+                                    <p class="small">18 năm kinh nghiệm, chuyên sâu về điều trị vô sinh hiếm muộn</p>
+                                    <p class="small"><i class="fas fa-graduation-cap me-2"></i>Thạc sĩ Sinh sản</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testimonials -->
+                <section class="mb-5">
+                    <h2 class="text-center text-primary mb-5">BỆNH NHÂN NÓI GÌ VỀ CHÚNG TÔI</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <blockquote class="blockquote mb-0">
+                                    <p>"Bác sĩ rất tận tâm, thăm khám nhẹ nhàng. Tôi hoàn toàn yên tâm khi khám phụ khoa tại đây."</p>
+                                    <footer class="blockquote-footer mt-2 fw-bold">Chị Nguyễn Thị Hà, 28 tuổi</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <blockquote class="blockquote mb-0">
+                                    <p>"Phòng khám sạch sẽ, bác sĩ tư vấn rất kỹ về cách chăm sóc thai kỳ. Tôi rất hài lòng!"</p>
+                                    <footer class="blockquote-footer mt-2 fw-bold">Chị Lê Minh Anh, 32 tuổi</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <blockquote class="blockquote mb-0">
+                                    <p>"Điều trị hiếm muộn tại đây sau 2 năm đã có tin vui. Cảm ơn bác sĩ rất nhiều!"</p>
+                                    <footer class="blockquote-footer mt-2 fw-bold">Vợ chồng chị Mai - anh Hoàng, 35 tuổi</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="text-center mt-5">
+                    <h3 class="mb-4">ĐẶT LỊCH KHÁM VỚI BÁC SĨ SẢN PHỤ KHOA</h3>
+                    <a href="tel:0933706188" class="btn btn-primary btn-lg px-5 me-3"><i class="fa-solid fa-phone me-2"></i> Gọi ngay 0933 706 188</a>
+                    <a href="/dat-lich" class="btn btn-outline-primary btn-lg px-5"><i class="fa-solid fa-calendar-days me-2"></i> Đặt lịch trực tuyến</a>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

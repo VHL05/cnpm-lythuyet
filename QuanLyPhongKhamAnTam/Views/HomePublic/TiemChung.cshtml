@@ -1,0 +1,253 @@
+﻿@{
+    ViewBag.Title = "TiemChung";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Custom Banner Style */
+    .service-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/Content/Images/tiemchung_anh5.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 150px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    .service-hero h1 {
+        font-size: 2.8rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+    }
+
+    .service-hero p {
+        font-size: 1.3rem;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        padding: 20px;
+    }
+
+    .sidebar .nav-link {
+        color: #495057;
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sidebar .nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background-color: transparent;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar .nav-link:hover {
+        background-color: #f0f7ff;
+        color: #0d6efd;
+        transform: translateX(5px);
+        box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+    }
+
+    .sidebar .nav-link:hover::before {
+        background-color: #0d6efd;
+    }
+
+    .sidebar .nav-link.active {
+        background-color: #e9f7fe;
+        color: #0d6efd;
+        font-weight: 500;
+        transform: translateX(5px);
+        box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+    }
+
+    .sidebar .nav-link.active::before {
+        background-color: #0d6efd;
+    }
+
+    .sidebar .nav-link i {
+        width: 20px;
+        text-align: center;
+        margin-right: 10px;
+        color: inherit;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar h5 {
+        color: #212529;
+        font-weight: 600;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    /* Content styles */
+    .service-detail {
+        padding: 40px 0;
+    }
+
+    .service-detail h1 {
+        color: #0d6efd;
+        margin-bottom: 20px;
+    }
+
+    .service-detail h2 {
+        color: #0d6efd;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .service-detail ul, .service-detail ol {
+        padding-left: 20px;
+    }
+
+    .service-detail ul.list-unstyled {
+        padding-left: 0;
+    }
+
+    .service-detail ul.list-unstyled li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+    }
+
+    .service-detail ul.list-unstyled li i {
+        position: absolute;
+        left: 0;
+        top: 5px;
+    }
+
+    .service-detail ol li {
+        margin-bottom: 15px;
+    }
+
+    /* Vaccine specific styles */
+    .vaccine-list li i.fa-syringe {
+        color: #dc3545;
+    }
+
+    .vaccine-list li i.fa-user {
+        color: #0d6efd;
+    }
+
+    .vaccine-list li i.fa-notes-medical {
+        color: #ffc107;
+    }
+
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+        .service-hero {
+            padding: 100px 0;
+        }
+        
+        .service-hero h1 {
+            font-size: 2rem;
+        }
+        
+        .service-hero p {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3 mb-4 mb-md-0">
+            <div class="sidebar p-3 rounded shadow-sm">
+                <h5 class="border-bottom pb-2 mb-3">Chức năng</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/TrangchuPK"><i class="fas fa-home me-2"></i>Trang chủ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link active" href="/homepublic/DichvuPK"><i class="fas fa-procedures me-2"></i>Dịch vụ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#chuyenkhoa"><i class="fas fa-stethoscope me-2"></i>Chuyên khoa</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/GioithieuPK"><i class="fas fa-info-circle me-2"></i>Giới thiệu</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#lienhe"><i class="fas fa-phone-alt me-2"></i>Liên hệ</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link" href="#"><i class="fas fa-newspaper me-2"></i>Tin tức</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content Column -->
+        <div class="col-md-9">
+            <!-- Hero Banner -->
+            <section class="service-hero">
+                <div class="container">
+                    <h1 class="display-4 fw-bold mb-4">DỊCH VỤ TIÊM CHỦNG VẮC XIN</h1>
+                    <p class="lead">Phòng ngừa bệnh tật - Bảo vệ sức khỏe cộng đồng</p>
+                </div>
+            </section>
+
+            <!-- Main Content -->
+            <section class="service-detail py-5">
+                <div class="container">
+                    <h1 class="text-primary fw-bold mb-4">Dịch vụ tiêm chủng vắc xin phòng ngừa</h1>
+
+                    <p class="mb-4">
+                        Tiêm chủng là biện pháp phòng bệnh hiệu quả và an toàn, góp phần bảo vệ sức khỏe cộng đồng.
+                        Phòng khám chúng tôi cung cấp các loại vắc xin phòng ngừa cho trẻ em và người lớn, theo đúng quy định của Bộ Y tế.
+                    </p>
+
+                    <h2 class="h4 fw-bold mb-3">Lợi ích khi tiêm chủng tại phòng khám</h2>
+                    <ul class="list-unstyled mb-4">
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Vắc xin nhập khẩu chính hãng, bảo quản nghiêm ngặt theo quy chuẩn.</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Đội ngũ bác sĩ, điều dưỡng nhiều kinh nghiệm, tư vấn kỹ càng trước tiêm.</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Quy trình tiêm an toàn, theo dõi sau tiêm chu đáo.</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i>Không gian tiêm chủng sạch sẽ, thân thiện, đặc biệt phù hợp cho trẻ nhỏ.</li>
+                    </ul>
+
+                    <h2 class="h4 fw-bold mb-3">Các loại vắc xin phổ biến</h2>
+                    <ul class="list-unstyled mb-4 vaccine-list">
+                        <li><i class="fas fa-syringe me-2"></i>Vắc xin 6 trong 1, 5 trong 1 cho trẻ nhỏ.</li>
+                        <li><i class="fas fa-syringe me-2"></i>Vắc xin viêm gan A, B.</li>
+                        <li><i class="fas fa-syringe me-2"></i>Vắc xin phòng cúm, sởi, quai bị, rubella (MMR).</li>
+                        <li><i class="fas fa-syringe me-2"></i>Vắc xin HPV, thủy đậu, phế cầu, viêm màng não.</li>
+                        <li><i class="fas fa-syringe me-2"></i>Vắc xin COVID-19 theo chương trình của Bộ Y tế.</li>
+                    </ul>
+
+                    <h2 class="h4 fw-bold mb-3">Đối tượng nên tiêm chủng</h2>
+                    <ul class="list-unstyled mb-4 vaccine-list">
+                        <li><i class="fas fa-user me-2"></i>Trẻ em theo lịch tiêm chủng quốc gia.</li>
+                        <li><i class="fas fa-user me-2"></i>Phụ nữ mang thai, phụ nữ chuẩn bị mang thai.</li>
+                        <li><i class="fas fa-user me-2"></i>Người lớn có nhu cầu phòng bệnh hoặc đi du lịch, công tác nước ngoài.</li>
+                    </ul>
+
+                    <h2 class="h4 fw-bold mb-3">Hướng dẫn khi đến tiêm chủng</h2>
+                    <ul class="list-unstyled mb-4 vaccine-list">
+                        <li><i class="fas fa-notes-medical me-2"></i>Mang theo sổ tiêm chủng (nếu có).</li>
+                        <li><i class="fas fa-notes-medical me-2"></i>Thông báo tình trạng sức khỏe hiện tại với nhân viên y tế.</li>
+                        <li><i class="fas fa-notes-medical me-2"></i>Ở lại theo dõi sau tiêm ít nhất 30 phút để đảm bảo an toàn.</li>
+                    </ul>
+
+                    <div class="alert alert-info">
+                        <strong>Lưu ý:</strong> Quý khách nên đặt lịch trước để được phục vụ nhanh chóng và chuẩn bị đầy đủ loại vắc xin cần thiết.
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="/dat-lich-tiem" class="btn btn-primary btn-lg">Đặt lịch tiêm chủng</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
