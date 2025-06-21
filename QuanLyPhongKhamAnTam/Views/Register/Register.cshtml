@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Trang chủ phòng khám";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <meta charset="UTF-8">
+    <title>Đăng ký tài khoản</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #74ebd5, #9face6);
+/*            display: flex;
+            justify-content: center;
+            align-items: center;*/
+        }
+
+        .register-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+        }
+
+            .register-container h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            .register-container input,
+            .register-container select {
+                width: 100%;
+                padding: 12px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 6px;
+                transition: 0.3s;
+            }
+
+                .register-container input:focus,
+                .register-container select:focus {
+                    border-color: #74b9ff;
+                    box-shadow: 0 0 6px rgba(116, 185, 255, 0.5);
+                    outline: none;
+                }
+
+                .register-container input[type="submit"] {
+                    background-color: #2d98da;
+                    color: white;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                    .register-container input[type="submit"]:hover {
+                        background-color: #227093;
+                    }
+
+        .note {
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+
+<body>
+    <div class="register-container">
+        <h2>Đăng ký tài khoản</h2>
+        <form action="#">
+            <input type="text" name="username" placeholder="Tên đăng nhập" required>
+            <input type="password" name="password" placeholder="Mật khẩu" required>
+            <input type="password" name="confirmPassword" placeholder="Xác nhận mật khẩu" required>
+
+            <!-- Thêm dòng ẩn role -->
+            <input type="hidden" name="role" value="Patient">
+
+
+            @*<select name="role" required>
+            <option value="">-- Chọn vai trò --</option>
+            <option value="Admin">Admin</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Receptionist">Receptionist</option>
+            <option value="Patient">Patient</option>
+        </select>*@
+
+            <input type="number" name="linkedDoctorID" placeholder="Mã bác sĩ liên kết (nếu là bệnh nhân)">
+            <p class="note">*Chỉ nhập mã bác sĩ nếu bạn là bệnh nhân</p>
+
+            <input type="submit" value="Đăng ký">
+        </form>
+    </div>
+</body>
+
+
