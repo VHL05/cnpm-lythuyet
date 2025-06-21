@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Phòng khám đa khoa An Tâm</title>
+    <meta charset="utf-8" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        .sidebar {
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+            .sidebar .nav-link {
+                color: #000;
+            }
+
+                .sidebar .nav-link:hover {
+                    background-color: #e2e6ea;
+                    border-radius: 5px;
+                }
+
+        .stat-box {
+            border-radius: 10px;
+            padding: 20px;
+            color: #fff;
+        }
+
+            .stat-box h4 {
+                margin: 0;
+            }
+
+        footer {
+            background-color: #1E90FF;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark px-3" style="background-color: #1E90FF; display: flex; align-items: center; justify-content: space-between;">
+        <a class="navbar-brand fw-bold" href="/homepublic/TrangChuPK" style="color: white;">
+            🩺 Phòng khám đa khoa An Tâm
+        </a>
+
+        <div style="position: absolute; left: 50%; transform: translateX(-50%); color: #dcefff; font-style: italic; font-size: 0.9rem;">
+            An tâm khám chữa, khỏe mạnh mỗi ngày
+        </div>
+
+        <div>
+            <span class="text-white">Xin chào, abc | <a href="/account/login" class="text-white text-decoration-underline">Đăng xuất</a></span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Phòng khám đa khoa An Tâm. Mọi quyền được bảo lưu.</p>
+        <p>Địa chỉ: 123 Đường Sức Khỏe, Quận Bình An, TP.HCM | Hotline: 0123 456 789</p>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
