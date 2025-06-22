@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cf4cc8fe993d4c0e972dd467e3687e86" Name="Diagram1">
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Account" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Appointment" Width="1.5" PointX="8" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Doctor" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Feedback" Width="1.5" PointX="0.5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.MedicalRecord" Width="1.5" PointX="6.125" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.OperationRoom" Width="1.5" PointX="0.625" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Patient" Width="1.5" PointX="4.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Prescription" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Specialty" Width="1.5" PointX="6.375" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Surgery" Width="1.5" PointX="2.625" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Test" Width="1.5" PointX="9.375" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Accounts_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Appointments_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Appointments_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Records_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Surgeries_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Tests_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Feedbacks_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Feedbacks_Specialty" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Prescriptions_Record" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Records_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Surgeries_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Surgeries_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Tests_Patient" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

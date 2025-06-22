@@ -1,0 +1,37 @@
+﻿@model QuanLyPhongKhamAnTam.Models.Appointment
+@{
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-success text-white">
+            <h3><i class="fas fa-check-circle"></i> ĐẶT LỊCH THÀNH CÔNG</h3>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-info">
+                <h5>Thông tin lịch hẹn:</h5>
+                <p><strong>Mã số:</strong> #@Model.AppointmentID</p>
+                <p><strong>Bệnh nhân:</strong> @Model.Patient.FullName</p>
+                <p><strong>Bác sĩ:</strong> @Model.Doctor.FullName</p>
+                <p><strong>Thời gian:</strong> @Model.AppointmentDate.ToString("dd/MM/yyyy HH:mm")</p>
+                <p>
+                    <strong>Trạng thái:</strong>
+                    <span class="badge bg-warning">@Model.Status</span>
+                </p>
+            </div>
+
+            <div class="mt-4">
+                <h5>Để xem lại lịch hẹn:</h5>
+                <div class="alert alert-warning">
+                    <p>Vui lòng lưu lại mã số <strong>#@Model.AppointmentID</strong> hoặc sử dụng số điện thoại <strong>@Model.Patient.Phone</strong> để tra cứu tại:</p>
+                    <a href="@Url.Action("CheckAppointment")" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Trang tra cứu lịch hẹn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

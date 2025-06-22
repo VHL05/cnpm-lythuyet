@@ -1,0 +1,68 @@
+﻿@model QuanLyPhongKhamAnTam.Areas.Staff.ViewModels.AppointmentViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Staff/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card shadow">
+    <div class="card-header bg-primary text-white">
+        <h4>@ViewBag.Title</h4>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.AppointmentID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PatientID, "Bệnh nhân")
+                @Html.DropDownListFor(model => model.PatientID, Model.Patients, "Chọn bệnh nhân", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PatientID, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DoctorID, "Bác sĩ")
+                @Html.DropDownListFor(model => model.DoctorID, Model.Doctors, "Chọn bác sĩ", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DoctorID, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AppointmentDate, "Ngày giờ hẹn")
+                @Html.TextBoxFor(model => model.AppointmentDate, new { @class = "form-control datetimepicker" })
+                @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status, "Trạng thái")
+                @Html.DropDownListFor(model => model.Status, new SelectList(new[] {
+                    new { Value = "Scheduled", Text = "Đã đặt" },
+                    new { Value = "Completed", Text = "Hoàn thành" },
+                    new { Value = "Cancelled", Text = "Đã hủy" }
+                }, "Value", "Text", Model.Status), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Notes, "Ghi chú")
+                @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", rows = 3 })
+                @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+            </div>
+
+            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+            <a href="@Url.Action("Details", new { id = Model.AppointmentID })" class="btn btn-secondary">Hủy</a>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('.datetimepicker').datetimepicker({
+                format: 'dd/mm/yyyy hh:ii',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
+}
+

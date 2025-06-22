@@ -1,0 +1,47 @@
+﻿@model IEnumerable<QuanLyPhongKhamAnTam.Models.Feedback>
+@{
+    ViewBag.Title = "IndexFeedBack";
+    Layout = "~/Areas/Staff/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Đánh Giá Phòng Khám";
+}
+
+<h2>Đánh Giá Phòng Khám</h2>
+
+<p>
+    @Html.ActionLink("Gửi đánh giá mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Tên người gửi</th>
+        <th>Chuyên khoa</th>
+        <th>Nội dung</th>
+        <th>Ngày gửi</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialty.SpecialtyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateSubmitted)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.FeedbackID }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.FeedbackID })
+            </td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,52 @@
+﻿@model QuanLyPhongKhamAnTam.ViewModels.AppointmentViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Đặt lịch khám online</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PatientName)
+            @Html.TextBoxFor(m => m.PatientName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PatientName)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PatientPhone)
+            @Html.TextBoxFor(m => m.PatientPhone, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PatientPhone)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PatientEmail)
+            @Html.TextBoxFor(m => m.PatientEmail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.PatientEmail)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.DoctorID)
+            @Html.DropDownListFor(m => m.DoctorID, Model.Doctors, "Chọn bác sĩ", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.DoctorID)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.AppointmentDate)
+            @Html.TextBoxFor(m => m.AppointmentDate, new { @class = "form-control", type = "datetime-local" })
+            @Html.ValidationMessageFor(m => m.AppointmentDate)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Symptoms)
+            @Html.TextAreaFor(m => m.Symptoms, new { @class = "form-control", rows = 3 })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Đặt lịch</button>
+    }
+</div>
+

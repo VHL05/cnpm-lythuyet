@@ -1,0 +1,38 @@
+﻿@model QuanLyPhongKhamAnTam.Models.Appointment
+@{
+    ViewBag.Title = "Cancel";
+    Layout = "~/Areas/Staff/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card shadow">
+    <div class="card-header bg-danger text-white">
+        <h4>@ViewBag.Title</h4>
+    </div>
+    <div class="card-body">
+        <h5>Bạn có chắc chắn muốn hủy lịch hẹn này?</h5>
+
+        <dl class="row mt-3">
+            <dt class="col-sm-4">Bệnh nhân:</dt>
+            <dd class="col-sm-8">@Model.Patient.FullName</dd>
+
+            <dt class="col-sm-4">Bác sĩ:</dt>
+            <dd class="col-sm-8">@Model.Doctor.FullName</dd>
+
+            <dt class="col-sm-4">Thời gian:</dt>
+            <dd class="col-sm-8">@Model.AppointmentDate.ToString("dd/MM/yyyy HH:mm")</dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label for="cancelReason">Lý do hủy (nếu có):</label>
+                <textarea id="cancelReason" name="Notes" class="form-control" rows="3">@Model.Notes</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-danger">Xác nhận hủy</button>
+            <a href="@Url.Action("Details", new { id = Model.AppointmentID })" class="btn btn-secondary">Quay lại</a>
+        }
+    </div>
+</div>
