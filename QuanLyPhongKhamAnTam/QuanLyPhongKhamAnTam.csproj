@@ -201,6 +201,9 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -251,7 +254,10 @@
     <Content Include="Content\Site.css" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     <Content Include="Models\QLPK_Nhom34_T5C2.Context.tt">
@@ -298,7 +304,10 @@
     <Content Include="Areas\Staff\Views\StaffHome\HomeStaff.cshtml" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     <Content Include="Areas\Staff\Views\Receptionist\Index.cshtml" />
@@ -315,6 +324,9 @@
       <DependentUpon>QLPK_Nhom34_T5C2.edmx</DependentUpon>
     </Content>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -369,6 +381,9 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
