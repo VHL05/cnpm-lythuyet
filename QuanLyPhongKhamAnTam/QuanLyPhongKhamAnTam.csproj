@@ -200,6 +200,9 @@
     <Compile Include="ViewModels\AppointmentViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
@@ -247,7 +250,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     <Content Include="Models\QLPK_Nhom34_T5C2.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLPK_Nhom34_T5C2.edmx</DependentUpon>
@@ -291,7 +297,10 @@
     <Content Include="Areas\Staff\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Staff\Views\StaffHome\HomeStaff.cshtml" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     <Content Include="Areas\Staff\Views\Receptionist\Index.cshtml" />
     <Content Include="Areas\Staff\Views\Receptionist\Create.cshtml" />
     <Content Include="Areas\Staff\Views\Receptionist\Details.cshtml" />
@@ -305,6 +314,9 @@
     <Content Include="Models\QLPK_Nhom34_T5C2.edmx.diagram">
       <DependentUpon>QLPK_Nhom34_T5C2.edmx</DependentUpon>
     </Content>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
@@ -356,6 +368,9 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
