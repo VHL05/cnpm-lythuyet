@@ -11,6 +11,20 @@ namespace QuanLyPhongKhamAnTam.Controllers
         // GET: HomePublic
         public ActionResult TrangchuPK()
         {
+            HttpCookie cookie = Request.Cookies["LoginCookie"];
+
+            if (cookie != null && cookie["Username"] != null)
+            {
+                ViewBag.Username = cookie["Username"];
+                // Hoặc có thể gán vào Session nếu muốn dùng trong cả site
+                Session["Username"] = cookie["Username"];
+            }
+            //else
+            //{
+            //    // Nếu chưa đăng nhập, chuyển hướng tới trang login
+            //    return RedirectToAction("Login", "Account");
+            //}
+
             return View();
         }
         public ActionResult DichvuPK()

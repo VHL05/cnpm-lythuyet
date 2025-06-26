@@ -122,13 +122,85 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Staff\Controllers\StaffHomeController.cs" />
     <Compile Include="Areas\Staff\StaffAreaRegistration.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Areas\Staff\ViewModels\AppointmentViewModel.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Controllers\HomePublicController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
     <Compile Include="Properties\AssemblyInfo.cs" />
+=======
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Appointment.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Doctor.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Feedback.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invoice.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InvoiceDetail.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MedicalRecord.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OperationRoom.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Patient.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Prescription.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLPK_Nhom34_T5C2.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLPK_Nhom34_T5C2.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLPK_Nhom34_T5C2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QLPK_Nhom34_T5C2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLPK_Nhom34_T5C2.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Service.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Specialty.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Surgery.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Test.cs">
+      <DependentUpon>QLPK_Nhom34_T5C2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="ViewModels\AppointmentViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -174,6 +246,19 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+<<<<<<< Updated upstream
+=======
+    <Content Include="Models\QLPK_Nhom34_T5C2.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLPK_Nhom34_T5C2.edmx</DependentUpon>
+      <LastGenOutput>QLPK_Nhom34_T5C2.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\QLPK_Nhom34_T5C2.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLPK_Nhom34_T5C2.edmx</DependentUpon>
+      <LastGenOutput>QLPK_Nhom34_T5C2.cs</LastGenOutput>
+    </Content>
+>>>>>>> Stashed changes
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -205,6 +290,22 @@
     <Content Include="Areas\Staff\Views\web.config" />
     <Content Include="Areas\Staff\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Staff\Views\StaffHome\HomeStaff.cshtml" />
+<<<<<<< Updated upstream
+=======
+    <Content Include="Areas\Staff\Views\Receptionist\Index.cshtml" />
+    <Content Include="Areas\Staff\Views\Receptionist\Create.cshtml" />
+    <Content Include="Areas\Staff\Views\Receptionist\Details.cshtml" />
+    <Content Include="Areas\Staff\Views\Receptionist\Edit.cshtml" />
+    <Content Include="Areas\Staff\Views\Receptionist\Cancel.cshtml" />
+    <Content Include="Areas\Staff\Views\Receptionist\ViewByDate.cshtml" />
+    <EntityDeploy Include="Models\QLPK_Nhom34_T5C2.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLPK_Nhom34_T5C2.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QLPK_Nhom34_T5C2.edmx.diagram">
+      <DependentUpon>QLPK_Nhom34_T5C2.edmx</DependentUpon>
+    </Content>
+>>>>>>> Stashed changes
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -242,8 +343,20 @@
     <Content Include="Views\HomePublic\Nhikhoa.cshtml" />
     <Content Include="Views\HomePublic\Sanphukhoa.cshtml" />
     <Content Include="Views\HomePublic\YHocCoTruyen.cshtml" />
+<<<<<<< Updated upstream
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Register\Register.cshtml" />
+=======
+    <Content Include="Views\Feedback\IndexFeedBack.cshtml" />
+    <Content Include="Views\Feedback\Create.cshtml" />
+    <Content Include="Views\Appointment\Create.cshtml" />
+    <Content Include="Views\Appointment\Success.cshtml" />
+    <Content Include="Views\Appointment\CheckAppointment.cshtml" />
+    <Content Include="Views\Appointment\AppointmentList.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

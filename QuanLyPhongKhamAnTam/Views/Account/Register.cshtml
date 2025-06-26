@@ -1,0 +1,160 @@
+﻿@model QuanLyPhongKhamAnTam.ViewModels.RegisterViewModel
+
+@{
+    ViewBag.Title = "Đăng ký tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body, html {
+        height: 100%;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(to right, #74ebd5, #9face6);
+    }
+
+    .register-container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 450px;
+        margin: 40px auto;
+    }
+
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .register-container input,
+        .register-container select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            margin-bottom: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+            .register-container input:focus,
+            .register-container select:focus {
+                border-color: #74b9ff;
+                box-shadow: 0 0 6px rgba(116, 185, 255, 0.5);
+                outline: none;
+            }
+
+            .register-container input[type="submit"] {
+                background-color: #2d98da;
+                color: white;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+
+                .register-container input[type="submit"]:hover {
+                    background-color: #227093;
+                }
+
+    .field-validation-error {
+        color: red;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .note {
+        font-size: 13px;
+        color: #666;
+    }
+</style>
+
+<div class="register-container">
+    <h2>Đăng ký tài khoản</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.TextBox("Username", Model?.Username, new { placeholder = "Tên đăng nhập", required = "required" })
+        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "field-validation-error" })
+
+        @Html.Password("Password", null, new { placeholder = "Mật khẩu", required = "required" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "field-validation-error" })
+
+        @Html.Password("ConfirmPassword", null, new { placeholder = "Xác nhận mật khẩu", required = "required" })
+        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "field-validation-error" })
+
+
+        <div style="display:flex; gap: 10px; align-items:center;">
+            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email", required = "required", type = "email", id = "emailInput" })
+            <button type="button" onclick="sendVerificationCode()">Gửi mã</button>
+        </div>
+
+
+        @Html.TextBox("LinkedDoctorID", Model?.LinkedDoctorID, new { placeholder = "Mã bác sĩ liên kết", type = "number" })
+        @Html.ValidationMessageFor(m => m.LinkedDoctorID, "", new { @class = "field-validation-error" })
+
+        @Html.HiddenFor(m => m.Role)
+
+        <div id="verificationField" style="display: none; margin-top: 15px;">
+            @Html.TextBoxFor(m => m.VerificationCode, new { placeholder = "Nhập mã xác minh", required = "required" })
+            @Html.ValidationMessageFor(m => m.VerificationCode, "", new { @class = "field-validation-error" })
+        </div>
+
+        <input type="submit" name="action" value="Đăng ký" />
+    }
+
+    @if (!string.IsNullOrEmpty(ViewBag.Message as string))
+    {
+        <p style="color: green;">@ViewBag.Message</p>
+    }
+
+    @if (!string.IsNullOrEmpty(ViewBag.Error as string))
+    {
+        <p style="color: red;">@ViewBag.Error</p>
+    }
+</div>
+
+@section Scripts {
+ 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+            function sendVerificationCode() {
+                var email = document.getElementById("emailInput").value;
+                if (!email) {
+                    alert("Vui lòng nhập email.");
+                    return;
+                }
+
+                $.ajax({
+                    url: '/Account/SendVerificationCode',
+                    type: 'POST',
+                    data: { email: email },
+                    success: function (response) {
+                        if (response.success) {
+                            alert("Mã xác minh đã được gửi.");
+                            document.getElementById("verificationField").style.display = "block";
+                        } else {
+                            alert("Gửi email thất bại: " + response.message);
+                        }
+                    },
+                    error: function () {
+                        alert("Không kết nối được tới máy chủ.");
+                    }
+                });
+            }
+        </script>
+
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

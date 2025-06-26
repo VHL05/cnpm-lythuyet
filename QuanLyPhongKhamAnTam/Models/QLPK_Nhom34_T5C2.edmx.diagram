@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5e2b10130b2d4754888e70117f8e48f6" Name="Diagram1">
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Account" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Appointment" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Doctor" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Feedback" Width="1.5" PointX="3.375" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.MedicalRecord" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.OperationRoom" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Patient" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Prescription" Width="1.5" PointX="8.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Surgery" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Test" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Accounts_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Appointments_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Appointments_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Records_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Surgeries_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Tests_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Feedbacks_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Prescriptions_Record" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Records_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Surgeries_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Surgeries_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Tests_Patient" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.InvoiceDetail" Width="1.5" PointX="7.5" PointY="13.125" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Invoice" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Service" Width="1.5" PointX="5.25" PointY="17.25" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Specialty" Width="1.5" PointX="0.75" PointY="15.875" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Invoices_Appointment" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Feedbacks_Specialty" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_InvoiceDetails_Invoice" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_InvoiceDetails_Service" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Invoices_Patient" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
