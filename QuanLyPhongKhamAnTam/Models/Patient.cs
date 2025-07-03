@@ -22,6 +22,7 @@ namespace QuanLyPhongKhamAnTam.Models
             this.MedicalRecords = new HashSet<MedicalRecord>();
             this.Surgeries = new HashSet<Surgery>();
             this.Tests = new HashSet<Test>();
+            this.Invoices = new HashSet<Invoice>();
         }
     
         public int PatientID { get; set; }
@@ -42,5 +43,7 @@ namespace QuanLyPhongKhamAnTam.Models
         public virtual ICollection<Surgery> Surgeries { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Test> Tests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

@@ -22,13 +22,14 @@ namespace QuanLyPhongKhamAnTam.Models
             this.MedicalRecords = new HashSet<MedicalRecord>();
             this.Surgeries = new HashSet<Surgery>();
             this.Tests = new HashSet<Test>();
+            this.WorkSchedules = new HashSet<WorkSchedule>();
         }
     
         public int DoctorID { get; set; }
         public string FullName { get; set; }
-        public string Specialty { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        public Nullable<int> SpecialtyID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }
@@ -40,5 +41,8 @@ namespace QuanLyPhongKhamAnTam.Models
         public virtual ICollection<Surgery> Surgeries { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Test> Tests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WorkSchedule> WorkSchedules { get; set; }
+        public virtual Specialty Specialty1 { get; set; }
     }
 }

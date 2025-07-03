@@ -20,7 +20,7 @@ namespace QuanLyPhongKhamAnTam.Controllers
             var model = new AppointmentViewModel
             {
                 Doctors = new SelectList(db.Doctors, "DoctorID", "FullName"),
-                AppointmentDate = DateTime.Now.AddHours(1) 
+                AppointmentDate = DateTime.Now.AddHours(1)
             };
             return View(model);
         }

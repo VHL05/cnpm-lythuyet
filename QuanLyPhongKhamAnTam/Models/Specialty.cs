@@ -18,6 +18,7 @@ namespace QuanLyPhongKhamAnTam.Models
         public Specialty()
         {
             this.Feedbacks = new HashSet<Feedback>();
+            this.Doctors = new HashSet<Doctor>();
         }
     
         public int SpecialtyID { get; set; }
@@ -25,5 +26,7 @@ namespace QuanLyPhongKhamAnTam.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Feedback> Feedbacks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Doctor> Doctors { get; set; }
     }
 }

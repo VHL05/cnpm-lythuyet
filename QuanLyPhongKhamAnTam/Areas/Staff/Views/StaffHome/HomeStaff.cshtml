@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Dashboard Nhân viên phòng khám";
-    Layout = "~/Areas/Staff/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container-fluid py-4">
@@ -17,12 +17,15 @@
                         <i class="fas fa-calendar-check me-2"></i>Quản lý lịch hẹn
                     </a>
                     <a href="#" class="list-group-item list-group-item-action py-2 px-3">
+                        <i class="fas fa-file-medical me-2"></i>Thêm bệnh nhân mới
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 px-3">
                         <i class="fas fa-file-medical me-2"></i>Hồ sơ bệnh án
                     </a>
                     <a href="#" class="list-group-item list-group-item-action py-2 px-3">
                         <i class="fas fa-comments me-2"></i>Tư vấn bệnh nhân
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 px-3">
+                    <a href="#" class="list-group-item list-group-item-action py-2 px-3"> 
                         <i class="fas fa-flask me-2"></i>Xét nghiệm & Chẩn đoán
                     </a>
                     <a href="#" class="list-group-item list-group-item-action py-2 px-3">
@@ -129,21 +132,21 @@
                             <tbody>
                                 <tr>
                                     <td>08:30 - 09:00</td>
-                                    <td>Nguyễn Văn A</td>
+                                    <td>Nguyễn Văn An</td>
                                     <td>Khám tổng quát</td>
                                     <td><span class="badge bg-success">Đã đến</span></td>
                                     <td><button class="btn btn-sm btn-outline-primary">Chi tiết</button></td>
                                 </tr>
                                 <tr>
                                     <td>09:15 - 09:45</td>
-                                    <td>Trần Thị B</td>
+                                    <td>Trần Thị Bình</td>
                                     <td>Tái khám</td>
                                     <td><span class="badge bg-warning text-dark">Chờ</span></td>
                                     <td><button class="btn btn-sm btn-outline-primary">Chi tiết</button></td>
                                 </tr>
                                 <tr>
                                     <td>10:00 - 10:30</td>
-                                    <td>Lê Văn C</td>
+                                    <td>Lê Văn Chính</td>
                                     <td>Xét nghiệm</td>
                                     <td><span class="badge bg-secondary">Chưa đến</span></td>
                                     <td><button class="btn btn-sm btn-outline-primary">Chi tiết</button></td>
@@ -165,7 +168,7 @@
                             <div class="card border-danger h-100 shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title text-danger"><i class="fas fa-heartbeat me-2"></i>Khẩn cấp</h5>
-                                    <p class="card-text">Bệnh nhân Nguyễn Thị D - Sốt cao, huyết áp không ổn định</p>
+                                    <p class="card-text">Bệnh nhân Nguyễn Thị Dung - Sốt cao, huyết áp không ổn định</p>
                                     <a href="#" class="btn btn-outline-danger btn-sm">Xử lý ngay</a>
                                 </div>
                             </div>
@@ -174,7 +177,7 @@
                             <div class="card border-warning h-100 shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title text-warning"><i class="fas fa-clock me-2"></i>Chờ kết quả</h5>
-                                    <p class="card-text">Bệnh nhân Phạm Văn E - Đang chờ kết quả xét nghiệm máu</p>
+                                    <p class="card-text">Bệnh nhân Phạm Văn Linh - Đang chờ kết quả xét nghiệm máu</p>
                                     <a href="#" class="btn btn-outline-warning btn-sm">Kiểm tra</a>
                                 </div>
                             </div>
@@ -183,7 +186,7 @@
                             <div class="card border-info h-100 shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title text-info"><i class="fas fa-pills me-2"></i>Thuốc đặc biệt</h5>
-                                    <p class="card-text">Bệnh nhân Hoàng Thị F - Cần theo dõi tác dụng phụ của thuốc</p>
+                                    <p class="card-text">Bệnh nhân Hoàng Thị Phương - Cần theo dõi tác dụng phụ của thuốc</p>
                                     <a href="#" class="btn btn-outline-info btn-sm">Ghi chú</a>
                                 </div>
                             </div>

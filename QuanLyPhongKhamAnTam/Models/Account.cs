@@ -19,6 +19,7 @@ namespace QuanLyPhongKhamAnTam.Models
         public string PasswordHash { get; set; }
         public string Role { get; set; }
         public Nullable<int> LinkedDoctorID { get; set; }
+        public string Email { get; set; }
     
         public virtual Doctor Doctor { get; set; }
     }

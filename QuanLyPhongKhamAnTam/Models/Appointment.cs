@@ -14,6 +14,12 @@ namespace QuanLyPhongKhamAnTam.Models
     
     public partial class Appointment
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Appointment()
+        {
+            this.Invoices = new HashSet<Invoice>();
+        }
+    
         public int AppointmentID { get; set; }
         public int PatientID { get; set; }
         public int DoctorID { get; set; }
@@ -23,5 +29,7 @@ namespace QuanLyPhongKhamAnTam.Models
     
         public virtual Doctor Doctor { get; set; }
         public virtual Patient Patient { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

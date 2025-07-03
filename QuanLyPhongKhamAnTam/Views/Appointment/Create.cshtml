@@ -1,52 +1,440 @@
 ﻿@model QuanLyPhongKhamAnTam.ViewModels.AppointmentViewModel
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Đặt lịch khám";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
-    <h2>Đặt lịch khám online</h2>
+<!-- Banner Section -->
+<section class="service-hero py-5" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/Content/Images/anh7.jpg'); background-size: cover; background-position: center;">
+    <div class="container text-center text-white">
+        <h1 class="display-4 fw-bold mb-4">ĐẶT LỊCH KHÁM ONLINE</h1>
+        <p class="lead">Đặt lịch khám nhanh chóng và tiện lợi với đội ngũ bác sĩ chuyên môn cao</p>
+    </div>
+</section>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+<!-- Main Content Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar Column -->
+            <div class="col-md-3 mb-4 mb-md-0">
+                <div class="sidebar p-3 rounded shadow-sm">
+                    <h5 class="border-bottom pb-2 mb-3">Chức năng</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/TrangchuPK"><i class="fas fa-home me-2"></i>Trang chủ</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/DichvuPK"><i class="fas fa-procedures me-2"></i>Dịch vụ</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link active" href="#"><i class="fas fa-calendar-plus me-2"></i>Đặt lịch khám</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link" href="#chuyenkhoa"><i class="fas fa-stethoscope me-2"></i>Chuyên khoa</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link" href="/homepublic/GioithieuPK"><i class="fas fa-info-circle me-2"></i>Giới thiệu</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link" href="#lienhe"><i class="fas fa-phone-alt me-2"></i>Liên hệ</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link" href="#"><i class="fas fa-newspaper me-2"></i>Tin tức</a></li>
+                    </ul>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.PatientName)
-            @Html.TextBoxFor(m => m.PatientName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.PatientName)
+                    <!-- Contact Info Card -->
+                    <div class="contact-card mt-4 p-3 rounded">
+                        <h6 class="text-primary fw-bold mb-3"><i class="fas fa-phone-alt me-2"></i>Liên hệ hỗ trợ</h6>
+                        <p class="small mb-2"><i class="fas fa-clock me-2"></i>Thời gian: 7:00 - 17:00</p>
+                        <p class="small mb-2"><i class="fas fa-calendar me-2"></i>Tất cả các ngày trong tuần</p>
+                        <p class="small mb-0"><i class="fas fa-headset me-2"></i>Hotline: <strong>1900-xxxx</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointment Form Column -->
+            <div class="col-md-9">
+                <div class="appointment-form-container">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-calendar-check me-2"></i>
+                                Thông tin đặt lịch khám
+                            </h3>
+                        </div>
+                        <div class="card-body p-4">
+                            @using (Html.BeginForm("Create", "Appointment", FormMethod.Post, new { @class = "appointment-form" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="row">
+                                    <!-- Patient Information Section -->
+                                    <div class="col-12 mb-4">
+                                        <h5 class="section-title text-primary mb-3">
+                                            <i class="fas fa-user me-2"></i>Thông tin bệnh nhân
+                                        </h5>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.PatientName, new { @class = "form-label fw-semibold" })
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                @Html.TextBoxFor(m => m.PatientName, new { @class = "form-control", placeholder = "Nhập họ và tên" })
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.PatientName, "", new { @class = "text-danger small" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.PatientPhone, new { @class = "form-label fw-semibold" })
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                @Html.TextBoxFor(m => m.PatientPhone, new { @class = "form-control", placeholder = "Số điện thoại liên hệ" })
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.PatientPhone, "", new { @class = "text-danger small" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mb-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.PatientEmail, new { @class = "form-label fw-semibold" })
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                @Html.TextBoxFor(m => m.PatientEmail, new { @class = "form-control", placeholder = "Email để nhận thông báo" })
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.PatientEmail, "", new { @class = "text-danger small" })
+                                        </div>
+                                    </div>
+
+                                    <!-- Appointment Details Section -->
+                                    <div class="col-12 mb-4">
+                                        <h5 class="section-title text-primary mb-3">
+                                            <i class="fas fa-calendar-alt me-2"></i>Thông tin lịch khám
+                                        </h5>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.DoctorID, new { @class = "form-label fw-semibold" })
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-user-md"></i></span>
+                                                @Html.DropDownListFor(m => m.DoctorID, Model.Doctors, "Chọn bác sĩ khám", new { @class = "form-select" })
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.DoctorID, "", new { @class = "text-danger small" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.AppointmentDate, new { @class = "form-label fw-semibold" })
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                                @Html.TextBoxFor(m => m.AppointmentDate, new { @class = "form-control", type = "datetime-local" })
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.AppointmentDate, "", new { @class = "text-danger small" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mb-4">
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Symptoms, new { @class = "form-label fw-semibold" })
+                                            <div class="input-group">
+                                                <span class="input-group-text align-self-start mt-1"><i class="fas fa-notes-medical"></i></span>
+                                                @Html.TextAreaFor(m => m.Symptoms, new { @class = "form-control", rows = 4, placeholder = "Mô tả triệu chứng, lý do khám..." })
+                                            </div>
+                                            <small class="form-text text-muted">Vui lòng mô tả chi tiết triệu chứng để bác sĩ có thể chuẩn bị tốt nhất cho buổi khám.</small>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="col-12">
+                                        <div class="d-flex gap-3 justify-content-end">
+                                            <button type="button" class="btn btn-outline-secondary px-4">
+                                                <i class="fas fa-times me-2"></i>Hủy bỏ
+                                            </button>
+                                            <button type="submit" class="btn btn-primary px-4">
+                                                <i class="fas fa-calendar-check me-2"></i>Đặt lịch khám
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Information Cards -->
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="info-card card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <h6 class="text-primary fw-bold mb-3"><i class="fas fa-info-circle me-2"></i>Lưu ý quan trọng</h6>
+                                    <ul class="list-unstyled small">
+                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Vui lòng đến trước giờ hẹn 15 phút</li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Mang theo CMND/CCCD và thẻ BHYT (nếu có)</li>
+                                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Liên hệ hotline nếu cần thay đổi lịch hẹn</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="info-card card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <h6 class="text-primary fw-bold mb-3"><i class="fas fa-clock me-2"></i>Giờ làm việc</h6>
+                                    <ul class="list-unstyled small">
+                                        <li class="mb-2"><i class="fas fa-calendar-day text-primary me-2"></i>Thứ 2 - Thứ 6: 7:00 - 17:00</li>
+                                        <li class="mb-2"><i class="fas fa-calendar-week text-primary me-2"></i>Thứ 7 - CN: 7:00 - 12:00</li>
+                                        <li class="mb-2"><i class="fas fa-phone text-primary me-2"></i>Hotline 24/7: 1900-xxxx</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+</section>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.PatientPhone)
-            @Html.TextBoxFor(m => m.PatientPhone, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.PatientPhone)
-        </div>
+<style>
+/* Inherit styles from DichVuPK */
+.service-hero {
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.PatientEmail)
-            @Html.TextBoxFor(m => m.PatientEmail, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.PatientEmail)
-        </div>
+.service-hero .container {
+    position: relative;
+    z-index: 2;
+}
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.DoctorID)
-            @Html.DropDownListFor(m => m.DoctorID, Model.Doctors, "Chọn bác sĩ", new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.DoctorID)
-        </div>
+.service-hero h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.AppointmentDate)
-            @Html.TextBoxFor(m => m.AppointmentDate, new { @class = "form-control", type = "datetime-local" })
-            @Html.ValidationMessageFor(m => m.AppointmentDate)
-        </div>
+.service-hero p {
+    font-size: 1.25rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.Symptoms)
-            @Html.TextAreaFor(m => m.Symptoms, new { @class = "form-control", rows = 3 })
-        </div>
+.sidebar {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    padding: 20px;
+}
 
-        <button type="submit" class="btn btn-primary">Đặt lịch</button>
+.sidebar .nav-link {
+    color: #495057;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar .nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #f0f7ff;
+    color: #0d6efd;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link:hover::before {
+    background-color: #0d6efd;
+}
+
+.sidebar .nav-link.active {
+    background-color: #e9f7fe;
+    color: #0d6efd;
+    font-weight: 500;
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link.active::before {
+    background-color: #0d6efd;
+}
+
+.sidebar .nav-link i {
+    width: 20px;
+    text-align: center;
+    margin-right: 10px;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.sidebar h5 {
+    color: #212529;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Appointment Form Specific Styles */
+.appointment-form-container {
+    animation: fadeInUp 0.6s ease;
+}
+
+@@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-</div>
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    border-bottom: none;
+    padding: 20px 30px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(45deg, #0d6efd, #6c757d);
+    border-radius: 2px;
+}
+
+.form-label {
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.input-group-text {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #6c757d;
+    border-radius: 8px 0 0 8px;
+}
+
+.form-control, .form-select {
+    border-color: #dee2e6;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 15px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.1);
+    transform: translateY(-1px);
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #0d6efd, #0056b3);
+    border: none;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(13, 110, 253, 0.3);
+}
+
+.btn-outline-secondary {
+    border: 2px solid #6c757d;
+    color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.2);
+}
+
+.contact-card {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 1px solid #dee2e6;
+}
+
+.info-card {
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive adjustments */
+@@media (max-width: 768px) {
+    .service-hero {
+        padding: 60px 0;
+    }
+
+    .service-hero h1 {
+        font-size: 2rem;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .sidebar {
+        position: static;
+        margin-bottom: 30px;
+    }
+}
+
+/* Form validation styles */
+.field-validation-error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.input-validation-error {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.1) !important;
+}
+</style>

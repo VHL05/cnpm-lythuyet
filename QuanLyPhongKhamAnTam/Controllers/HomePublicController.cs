@@ -11,8 +11,14 @@ namespace QuanLyPhongKhamAnTam.Controllers
         // GET: HomePublic
         public ActionResult TrangchuPK()
         {
+            var cookie = Request.Cookies["LoginCookie"];
+            if (cookie != null && cookie["Username"] != null)
+            {
+                ViewBag.Username = cookie["Username"];
+            }
             return View();
         }
+
         public ActionResult DichvuPK()
         {
             return View();

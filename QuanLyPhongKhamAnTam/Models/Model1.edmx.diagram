@@ -30,6 +30,16 @@
         <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Surgeries_Room" ManuallyRouted="false" />
         <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Surgeries_Patient" ManuallyRouted="false" />
         <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Tests_Patient" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.InvoiceDetail" Width="1.5" PointX="12.5" PointY="9" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Invoice" Width="1.5" PointX="10.25" PointY="8.75" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.Service" Width="1.5" PointX="10.25" PointY="13.125" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Invoices_Appointment" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_InvoiceDetails_Invoice" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_InvoiceDetails_Service" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Invoices_Patient" />
+        <EntityTypeShape EntityType="QLPK_Nhom34_T5C2Model.WorkSchedule" Width="1.5" PointX="3" PointY="5" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_WorkSchedule_Doctor" />
+        <AssociationConnector Association="QLPK_Nhom34_T5C2Model.FK_Doctors_Specialty" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

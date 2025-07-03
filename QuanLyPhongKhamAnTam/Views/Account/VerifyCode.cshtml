@@ -1,0 +1,22 @@
+﻿@model QuanLyPhongKhamAnTam.ViewModels.RegisterViewModel
+
+@{
+    ViewBag.Title = "Xác minh Email";
+}
+
+<h2>Xác minh Email</h2>
+
+<p>Chúng tôi đã gửi mã xác minh đến email <strong>@Model.Email</strong>. Vui lòng nhập mã:</p>
+
+@using (Html.BeginForm("VerifyCode", "Account", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Username)
+    @Html.HiddenFor(m => m.Password)
+    @Html.HiddenFor(m => m.ConfirmPassword)
+    @Html.HiddenFor(m => m.Role)
+    @Html.HiddenFor(m => m.LinkedDoctorID)
+    @Html.HiddenFor(m => m.Email)
+
+    @Html.TextBoxFor(m => m.VerificationCode, new { placeholder = "Nhập mã xác minh", required = "required" })
+    <input type="submit" value="Xác minh & Đăng ký" />
+}

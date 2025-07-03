@@ -37,5 +37,9 @@ namespace QuanLyPhongKhamAnTam.Models
         public virtual DbSet<Surgery> Surgeries { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Test> Tests { get; set; }
+        public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<WorkSchedule> WorkSchedules { get; set; }
     }
 }
