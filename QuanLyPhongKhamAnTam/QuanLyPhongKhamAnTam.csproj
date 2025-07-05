@@ -166,6 +166,7 @@
     <Compile Include="Areas\Staff\ViewModels\AppointmentViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomePublicController.cs" />
     <Compile Include="Global.asax.cs">
@@ -389,6 +390,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

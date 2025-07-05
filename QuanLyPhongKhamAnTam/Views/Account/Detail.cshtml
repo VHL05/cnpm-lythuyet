@@ -1,0 +1,31 @@
+﻿@model QuanLyPhongKhamAnTam.Models.Account
+
+@{
+    ViewBag.Title = "Thông tin tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow" style="max-width: 600px; margin: auto;">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">👤 Thông tin tài khoản</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">Tên đăng nhập</dt>
+                <dd class="col-sm-8">@Model.Username</dd>
+
+                <dt class="col-sm-4">Email</dt>
+                <dd class="col-sm-8">@Model.Email</dd>
+
+                <dt class="col-sm-4">Vai trò</dt>
+                <dd class="col-sm-8">@Model.Role</dd>
+
+                @* Nếu có các thuộc tính như Họ tên, SĐT, địa chỉ, bạn có thể thêm tiếp ở đây *@
+            </dl>
+        </div>
+        <div class="card-footer text-end">
+            <a href="@Url.Action("Edit", "Account")" class="btn btn-outline-primary">✏️ Chỉnh sửa</a>
+        </div>
+    </div>
+</div>

@@ -173,6 +173,27 @@ namespace QuanLyPhongKhamAnTam.Controllers
 
             return RedirectToAction("Login", "Account");
         }
+        public ActionResult Detail()
+        {
+            // Lấy Username từ Cookie đăng nhập
+            var username = Request.Cookies["LoginCookie"]?["Username"];
+
+            // Nếu không có thì chuyển về trang Login
+            if (string.IsNullOrEmpty(username))
+                return RedirectToAction("Login");
+
+            // Tìm tài khoản theo Username
+            var account = db.Accounts.FirstOrDefault(a => a.Username == username);
+
+            if (account == null)
+                return HttpNotFound("Không tìm thấy tài khoản.");
+
+            // ✅ Đảm bảo hiển thị tên đúng ở thanh menu (Session dùng ở Layout.cshtml)
+            Session["Username"] = account.Username;
+
+            return View(account); // Truyền model cho View hiển thị
+        }
+
 
     }
 }
